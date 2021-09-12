@@ -1,0 +1,44 @@
+body {
+  font-family: var(--default-font);
+  color: var(--white-color);
+  // font-style: normal;
+  // font-weight: 400;
+  // font-size: 16px;
+  // line-height: 1.25;
+  // letter-spacing: normal;
+  // color: var(--default-text-color);
+  background-color: var(--black-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  margin: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
