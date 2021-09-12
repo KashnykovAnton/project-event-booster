@@ -12,5 +12,3 @@ function onSearchEvent(e) {
     .then(events => console.log(events)) // успешно получаем 20 events
     .catch();
 }
-
-refs.formRef.addEventListener('submit', onSearchEvent);
