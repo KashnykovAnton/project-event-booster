@@ -1,5 +1,5 @@
-import { getRefs } from './getRefs';
-import { fetchEvent } from './apiService';
+import getRefs from './getRefs';
+import fetchEvent from './apiService';
 
 const refs = getRefs();
 
