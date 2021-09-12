@@ -1,1 +1,0 @@
-{"version":3,"sources":["sass/layouts/_footer.scss"],"names":[],"mappings":"AAAA,WACE,cAAA,CACA,kBAAA,CACA,aAAA,CACA","file":"src.87eb808d.css","sourceRoot":"../src","sourcesContent":[".copyrigth {\n  font-size: 16px;\n  line-height: 19.5px;\n  color: #939393;\n  text-align: center;\n}\n\n"]}
