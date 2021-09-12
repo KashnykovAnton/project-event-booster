@@ -5,4 +5,4 @@ function getRefs() {
 }
 
 export { getRefs } from './searchEvent';
-export { getRefs } from '../index';
+//export { getRefs } from '../index';
