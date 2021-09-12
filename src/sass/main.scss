@@ -1,7 +1,10 @@
-/*
+
  * Главный файл стилей.
  * Все паршалы подключаются сюда.
- */
+
+@import './layouts/footer';
+@import './layouts/grid';
+
 
  @import './base/modern-normalize';
 
