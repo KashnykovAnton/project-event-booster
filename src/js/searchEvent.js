@@ -1,12 +1,17 @@
-import getRefs from './getRefs';
 import fetchEvent from './apiService';
 
-const refs = getRefs();
+const states = {
+  page: 1,
+  query: '',
+};
 
-function onSearchEvent(e) {
+export default function onSearchEvent(e) {
   e.preventDefault();
-  refs.formRef.query = e.currentTarget.elements.query.value;
-  const searchEvent = e.currentTarget.elements.query.value;
+  states.query = e.currentTarget.elements.query.value;
+  const searchEvent = states.query;
+  states.page = 1;
+
+  console.log(searchEvent);
 
   fetchEvent(searchEvent)
     .then(events => console.log(events)) // успешно получаем 20 events

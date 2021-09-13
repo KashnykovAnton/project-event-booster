@@ -1,8 +1,7 @@
 function getRefs() {
   return {
-    formRef: document.querySelector('.test'), //ссылка на будуйщую форму
+    formRef: document.querySelector('#js-form'),
   };
 }
 
 export default getRefs;
-
