@@ -1,14 +1,30 @@
-import getRefs from './getRefs';
 import fetchEvent from './apiService';
 
-const refs = getRefs();
+const states = {
+  page: 1,
+  query: '',
+};
 
 function onSearchEvent(e) {
   e.preventDefault();
-  refs.formRef.query = e.currentTarget.elements.query.value;
-  const searchEvent = e.currentTarget.elements.query.value;
+  states.query = e.currentTarget.elements.query.value;
+  states.page = 1;
 
-  fetchEvent(searchEvent)
-    .then(events => console.log(events)) // успешно получаем 20 events
+  console.log(states.query);
+
+  fetchEvent(states.query, states.page)
+    .then(events => console.log(events))
     .catch();
+  states.page += 1;
 }
+
+// тестовая функция для получения нумерованый страниц с API
+function onTestNextPage() {
+  fetchEvent(states.query, states.page)
+    .then(events => console.log(events))
+    .catch();
+
+  states.page += 1;
+}
+
+export { onSearchEvent, onTestNextPage };

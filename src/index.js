@@ -1,8 +1,19 @@
 import './sass/main.scss';
 
 import './js/grid.js'
-import getRefs from './js/getRefs';
-const refs = getRefs();
 
-// закомментировано пока нет ссылки на форму, чтобы не было ошибки в консоли
-// refs.formRef.addEventListener('submit', onSearchEvent);
+import {trackScroll, backToTop} from './js/backToTop';
+
+import getRefs from './js/getRefs';
+import { onSearchEvent, onTestNextPage } from './js/searchEvent';
+
+const refs = getRefs();
+import './js/modal';
+
+
+refs.formRef.addEventListener('submit', onSearchEvent);
+refs.btnTestRef.addEventListener('click', onTestNextPage); // слушатель на тестовую кнопку
+
+refs.backToTopBtn.addEventListener('click', backToTop);
+window.addEventListener('scroll', trackScroll);
+
