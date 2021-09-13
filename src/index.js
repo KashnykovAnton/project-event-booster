@@ -1,5 +1,9 @@
 import './sass/main.scss';
+
+import './js/grid.js'
+
 import {trackScroll, backToTop} from './js/backToTop';
+
 import getRefs from './js/getRefs';
 import { onSearchEvent, onTestNextPage } from './js/searchEvent';
 

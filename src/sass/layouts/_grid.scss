@@ -1,9 +1,5 @@
-li,h2, p {
-    margin: 0;
-}
 .main {
     width: 1280px;
-    background-color: aqua;
     margin-right: auto;
     margin-left: auto;
 }
@@ -15,19 +11,24 @@ li,h2, p {
     justify-content: center;
     padding: 0;
     width: 946px;
-    height: 1760px;
+    // height: 1760px;
     margin-top: 0;
     margin-bottom: 0;
     margin-right: auto;
     margin-left: auto;
-    background-color: brown;
+    // background-color: brown;
 }
 
 .main-item {
     width: 194px;
-    height: 312px;
+    // height: 312px;
     margin-right: 56px;
-    background-color: burlywood;
+    // background-color: burlywood;
+    margin-bottom: 50px;
+}
+
+.main-item:nth-last-child(-n + 4) {
+    margin-bottom: 0;
 }
 
 .main-item:nth-child(4n) {
@@ -40,7 +41,7 @@ li,h2, p {
     margin-top: 13px;
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    background-color: black;
+    // background-color: black;
 }
 
 .main-name,
@@ -48,12 +49,18 @@ li,h2, p {
 .main-location {
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     margin-top: 5px;
-
+    font-size: 16px;
 }
 
 .main-name {
-    font-style: normal;
-    font-size: 16px;
-    line-height: 1,22%;
+    font-weight: bold;
+    color: var(--pink-color);
+}
+
+.main-location {
+    font-size: 14px;
+    font-weight: 600;
 }
