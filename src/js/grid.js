@@ -4,10 +4,8 @@ import { states } from './searchEvent';
 
 const refs = getRefs();
 
-// const mainListRef = document.querySelector('.main-list');
-
 function createMarkup(data) {
-  //   console.log(data);
+  console.log(data.events[0].images);
   data.events.map(el => {
     refs.mainListRef.insertAdjacentHTML(
       'beforeend',
