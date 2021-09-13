@@ -1,0 +1,374 @@
+
+.header {
+  position: absolute;
+  width: 100%;
+  
+}
+
+.logo-link {
+  display: block;
+  cursor: pointer;
+  width: 107px;
+  height: 90px;
+  background-image: linear-gradient(
+      136.07deg,
+      rgba(196, 196, 196, 0.03) 10.75%,
+      rgba(196, 196, 196, 0) 92.33%
+    ),
+    url(../images/icons/logo-mobile.svg);
+  backdrop-filter: blur(30px);
+  border-radius: 0 0 90px;
+  
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    height: 151px;
+    background-image: linear-gradient(
+        136.07deg,
+        rgba(196, 196, 196, 0.03) 10.75%,
+        rgba(196, 196, 196, 0) 92.33%
+      ),
+      url(../images/icons/logo-tabl.svg);
+    border-radius: 0 0 151px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 239px;
+    height: 201px;
+    background-image: linear-gradient(
+        136.07deg,
+        rgba(196, 196, 196, 0.03) 10.75%,
+        rgba(196, 196, 196, 0) 92.33%
+      ),
+      url(../images/icons/logo-desk.svg);
+    border-radius: 0 0 201px;
+  }
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--animation);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(32, 13, 29, 0.6);
+  }
+}
+
+.hero {
+  padding: 0;
+  margin: 0;
+  height: 364px;
+  background-repeat: no-repeat;
+  background-size: 100vw 102px, cover, cover;
+  background-position: bottom, center, center;
+
+  @media screen and (min-device-pixel-ratio: 1),
+    screen and (min-resolution: 96dpi),
+    screen and (min-resolution: 1dppx) {
+    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url(../images/mobile/bg_mobile.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url(../images/mobile/bg_mobile@2x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-size: cover, 100vw 102px, cover, cover;
+    background-position: center, bottom, center, center;
+
+    @media screen and (min-device-pixel-ratio: 1),
+      screen and (min-resolution: 96dpi),
+      screen and (min-resolution: 1dppx) {
+      background-image: url(),
+        linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(../images/tablet/bg_tablet.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(),
+        linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(../images/tablet/bg_tablet@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-size: cover, 100vw 102px, cover, cover;
+    background-position: center, bottom, center, center;
+
+    height: 446px;
+
+    @media screen and (min-device-pixel-ratio: 1),
+      screen and (min-resolution: 96dpi),
+      screen and (min-resolution: 1dppx) {
+      background-image: url(),
+        linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(../images/desktop/bg_desktop.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(),
+        linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(../images/desktop/bg_desktop@2x.jpg);
+    }
+  }
+}
+
+.main-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 78px;
+  max-width: 212px;
+
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.22;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--pink-color);
+
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    max-width: 353px;
+    font-size: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-weight: 900;
+    font-size: 50px;
+    max-width: 588px;
+  }
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 1000;
+
+  margin-top: 25px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 27px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 52px;
+  }
+}
+
+.input-search {
+  display: flex;
+
+  width: 270px;
+  height: 40px;
+  padding: 10px 50px 10px 30px;
+
+  margin-bottom: 25px;
+
+  background-color: var(--search-field-bg-color);
+  backdrop-filter: blur(20px);
+  color: var(--grey-color);
+
+  border: 0;
+  border-radius: 20px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  transition-property: outline;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::placeholder {
+    color: var(--grey-color);
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+
+    background-color: var(--search-field-bg-color);
+    backdrop-filter: blur(20px);
+    color: var(--grey-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+    margin-right: 30px;
+  }
+}
+
+.form-input {
+  position: relative;
+}
+
+.form-input .icon {
+  position: absolute;
+  top: 20%;
+  right: 35px;
+
+  display: inline-block;
+  fill: var(--grey-color);
+
+  @media screen and (min-width: 768px) {
+    top: 35%;
+    right: 60px;
+  }
+}
+
+.search.icon {
+  width: 12px;
+  height: 12px;
+  fill: var(--grey-color);
+  pointer-events: none;
+}
+
+.select-country {
+  display: flex;
+
+  width: 270px;
+  height: 40px;
+  padding: 10px 50px 10px 30px;
+
+  background-color: var(--search-field-bg-color);
+  backdrop-filter: blur(20px);
+  color: var(--grey-color);
+
+  border: 0;
+  border-radius: 20px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  cursor: pointer;
+
+  transition-property: outline;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-radius: 20px;
+    padding: 10px 0px 10px 0px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: 0000;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: var(--grey-color);
+  }
+}
+
+.select-label {
+  position: relative;
+
+  &::after {
+    content: ' ';
+
+    display: inline-block;
+    width: 17px;
+    height: 12px;
+    border: 1px solid transparent;
+    border-radius: 1px;
+    background-color: transparent;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    position: absolute;
+    top: -26px;
+    right: -240px;
+
+    color: var(--grey-color);
+
+    pointer-events: none;
+    -webkit-transition: 0ms all ease;
+    -o-transition: 0ms all ease;
+    transition: 0ms all ease;
+  }
+}
+
+select:focus + .select-label::after {
+  content: ' ';
+
+  background-image: url();
+
+  position: absolute;
+  top: -186px;
+  right: -240px;
+
+  color: var(--grey-color);
+
+  pointer-events: none;
+  -webkit-transition: 0ms all ease;
+  -o-transition: 0ms all ease;
+  transition: 0ms all ease;
+}
+
+.option {
+  color: #cccccc;
+  max-width: 270px;
+  max-height: 170px;
+
+  padding: 0px 50px 0px 30px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--grey-color);
+    color: white;
+  }
+}
+
+option:checked {
+  background-color: #dc56c5 !important;
+}
+
+.option__decor {
+  color: var(--grey-color);
+  max-width: 270px;
+  max-height: 170px;
+
+  padding: 0px 50px 0px 30px;
+}

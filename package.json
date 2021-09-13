@@ -27,5 +27,6 @@
   },
   "dependencies": {
     "basiclightbox": "^5.0.4"
+    "gh-pages": "^3.2.3"
   }
 }

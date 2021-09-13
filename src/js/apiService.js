@@ -10,4 +10,4 @@ async function fetchEvent(event) {
   return events;
 }
 
-export { fetchEvent } from './searchEvent';
+export default fetchEvent;
