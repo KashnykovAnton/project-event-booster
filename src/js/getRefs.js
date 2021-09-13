@@ -1,9 +1,12 @@
 function getRefs() {
   return {
-    formRef: document.querySelector('.test'), //ссылка на будуйщую форму
+
+    formRef: document.querySelector('#js-form'),
+    btnTestRef: document.querySelector('.btn'), // ссылка на тестовую кнопку
+    
     backToTopBtn: document.querySelector('.back-to-top'),
+
   };
 }
 
 export default getRefs;
-

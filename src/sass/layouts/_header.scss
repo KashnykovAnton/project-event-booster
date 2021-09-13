@@ -1,8 +1,6 @@
-
 .header {
   position: absolute;
   width: 100%;
-  
 }
 
 .logo-link {
@@ -18,7 +16,6 @@
     url(../images/icons/logo-mobile.svg);
   backdrop-filter: blur(30px);
   border-radius: 0 0 90px;
-  
 
   @media screen and (min-width: 768px) {
     width: 180px;
@@ -141,7 +138,6 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--pink-color);
-
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;
@@ -371,4 +367,13 @@ option:checked {
   max-height: 170px;
 
   padding: 0px 50px 0px 30px;
+}
+
+// стили тестовой кнопки
+.btn {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: block;
 }
