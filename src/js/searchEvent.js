@@ -5,15 +5,26 @@ const states = {
   query: '',
 };
 
-export default function onSearchEvent(e) {
+function onSearchEvent(e) {
   e.preventDefault();
   states.query = e.currentTarget.elements.query.value;
-  const searchEvent = states.query;
   states.page = 1;
 
-  console.log(searchEvent);
+  console.log(states.query);
 
-  fetchEvent(searchEvent)
-    .then(events => console.log(events)) // успешно получаем 20 events
+  fetchEvent(states.query, states.page)
+    .then(events => console.log(events))
     .catch();
+  states.page += 1;
 }
+
+// тестовая функция для пагинации
+function onTestNextPage() {
+  fetchEvent(states.query, states.page)
+    .then(events => console.log(events))
+    .catch();
+
+  states.page += 1;
+}
+
+export { onSearchEvent, onTestNextPage };
