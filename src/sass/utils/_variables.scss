@@ -1,5 +1,5 @@
 :root {
-  --default-font: "Montserrat", sans-serif;
+  --default-font: 'Montserrat', sans-serif;
 
   //breakpoints for media
   --mobile-min: 320px;
@@ -8,21 +8,20 @@
   --desktop: 1280px;
 
   //background
-  --black-color: #0E0E0E; // ...color for text in modal!!!
+  --black-color: #0e0e0e; // ...color for text in modal!!!
   --search-field-bg-color: rgba(255, 255, 255, 0.2);
-  --modal-bg-color:#FFF2FD;
+  --modal-bg-color: #fff2fd;
+  --backdrop-color: rgba(32, 13, 29, 0.6);
 
   //color
-  --pink-color:#DC56C5; //border for button 'MORE FROM THIS AUTHOR' in hover  (tablet version)
-  --white-color:#FFFFFF;
+  --pink-color: #dc56c5; //border for button 'MORE FROM THIS AUTHOR' in hover  (tablet version)
+  --white-color: #ffffff;
   --grey-color: #939393;
-  --red-color:#D53333;
+  --red-color: #d53333;
 
-  //button 
-  --btn-color: #4C00FE;//hover???? color
-
+  //button
+  --btn-color: #4c00fe; //hover???? color
 
   // for animation (timing + timing-function)
   --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
