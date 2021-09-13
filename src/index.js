@@ -1,5 +1,6 @@
 import './sass/main.scss';
 
+import './js/grid.js'
 import getRefs from './js/getRefs';
 const refs = getRefs();
 
