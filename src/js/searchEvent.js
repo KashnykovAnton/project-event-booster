@@ -18,7 +18,7 @@ function onSearchEvent(e) {
   states.page += 1;
 }
 
-// тестовая функция для пагинации
+// тестовая функция для получения нумерованый страниц с API
 function onTestNextPage() {
   fetchEvent(states.query, states.page)
     .then(events => console.log(events))
