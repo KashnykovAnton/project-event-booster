@@ -2,8 +2,8 @@ import getRefs from './getRefs';
 const refs = getRefs();
 
 export function trackScroll() {
-  var scrolled = window.pageYOffset;
-  var coords = document.documentElement.clientHeight;
+  let scrolled = window.pageYOffset;
+  let coords = document.documentElement.clientHeight;
 
   if (scrolled > coords) {
     refs.backToTopBtn.classList.add('back-to-top-show');
