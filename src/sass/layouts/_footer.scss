@@ -22,13 +22,18 @@
   background-color: var(--grey-color);
   color: var(--black-color);
   cursor: pointer;
-  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 10px 0px;
+  outline: transparent;
   display: none;
-  transition: background-color var(--animation), color var(--animation);
+  transition: background-color var(--animation), color var(--animation), border-color var(--animation);
 
   &:hover {
-    color: var(--white-color);
-    background-color: #a5a9ab;
+    color: var(--red-color);
+    background-color: var(--black-color);
+    border-color: var(--red-color);
   }
 }
 
@@ -39,7 +44,7 @@
 }
 
 .arrow-up{
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
   color: inherit;
   text-shadow: var(--pink-color) 2px 0 10px;
