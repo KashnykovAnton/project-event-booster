@@ -1,11 +1,11 @@
 function getRefs() {
   return {
-
     formRef: document.querySelector('#js-form'),
     btnTestRef: document.querySelector('.btn'), // ссылка на тестовую кнопку
-    
-    backToTopBtn: document.querySelector('.back-to-top'),
 
+    mainListRef: document.querySelector('.main-list'),
+
+    backToTopBtn: document.querySelector('.back-to-top'),
   };
 }
 
