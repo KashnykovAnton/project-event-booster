@@ -1,8 +1,27 @@
-.copyrigth {
+.footer {
   font-size: 16px;
-  line-height: 19.5px;
-  color: #939393;
+  line-height: 30px;
   text-align: center;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.number-of-page {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.number-of-page_active {
+  border: 1px solid #dc56c5;
+  border-radius: 10px 0px;
+}
+
+.copyrigth {
+  margin-top: 80px;
+  color: #939393;
 }
 
 .heart {

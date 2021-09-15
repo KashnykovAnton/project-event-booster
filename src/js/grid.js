@@ -5,8 +5,8 @@ import { states } from './searchEvent';
 const refs = getRefs();
 
 function createMarkup(data) {
-  console.log(data.events[5].images);
-  data.events.map(el => {
+
+  data._embedded.events.map(el => {
     refs.mainListRef.insertAdjacentHTML(
       'beforeend',
       `<li class="main-item">
@@ -24,9 +24,10 @@ function startPageLoad() {
     .then(createMarkup)
     .catch(error => console.log(error));
 
-  states.page += 1;
+  // states.page += 1;
 }
 
-startPageLoad();
+// startPageLoad();
 
-export default createMarkup;
+export default startPageLoad;
+
