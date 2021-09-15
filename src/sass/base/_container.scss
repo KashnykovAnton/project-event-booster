@@ -4,19 +4,23 @@
   padding-right: 20px;
   padding-left: 20px;
 
-  @media screen and (min-width: var(--mobile-min)) {
-    width: 100%;
+  @media screen and (min-width: 320px) {
+    max-width: 320px;
   }
 
-  @media screen and (min-width: var(--mobile-max)) {
+  @media screen and (min-width: 480px) {
     max-width: 480px;
   }
 
-  @media screen and (min-width: var(--tablet)) {
+  @media screen and (min-width: 768px) {
+    // padding-right: 75px;
+    // padding-left: 75px;
     max-width: 650px;
   }
 
-  @media screen and (min-width: var(--desktop)) {
+  @media screen and (min-width: 1280px) {
+    // padding-right: 165px;
+    // padding-left: 165px;
     max-width: 986px;
   }
 }

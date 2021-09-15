@@ -3,20 +3,20 @@
 }
 
 .background{
-  // background-image: url(../images/bg-mobile.jpg);
-  // background-size: contain;
-  // background-repeat: repeat;
+  background-image: url(../images/bg-mobile.jpg);
+  background-size: contain;
+  background-repeat: repeat;
 
-  // @media screen and (min-device-pixel-ratio: 2),
-  // screen and (min-resolution: 192dpi),
-  // screen and (min-resolution: 2dppx) {
-  // background-image: url(../images/bg-mobile@2x.jpg);
-  // }
+  @media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  background-image: url(../images/bg-mobile@2x.jpg);
+  }
 
 @media screen and (min-width: 768px) {
   background-image: url(../images/bg-main.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: repeat;
 }
 
   @media screen and (min-device-pixel-ratio: 2),
