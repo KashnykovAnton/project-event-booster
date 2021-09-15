@@ -3,8 +3,12 @@
     <img class='main-poster' src='{{images.2.url}}' alt='' />
     <h2 class='main-name'>{{name}}</h2>
     <p class='main-date'> {{dates.start.localDate}}</p>
-    <p class='main-location'>{{dates.timezone}}</p>
+    <p class='main-location'>{{_embedded.venues.0.name}}</p>
+
   </li>
 {{/each}}
 
+{{! <svg>
+        <use href='../images/icons/icons-sprite.svg/#location-card.svg'></use>
+      </svg> }}
 {{!-- {{el.images[0].url}} --}}
