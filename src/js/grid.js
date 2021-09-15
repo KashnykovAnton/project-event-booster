@@ -30,3 +30,4 @@ function startPageLoad() {
 startPageLoad();
 
 export default createMarkup;
+

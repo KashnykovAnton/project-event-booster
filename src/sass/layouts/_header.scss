@@ -1,156 +1,39 @@
 .header {
-  position: absolute;
-  width: 100%;
+  position: relative;
 }
 
 .logo-link {
-  display: block;
-  cursor: pointer;
-  width: 107px;
-  height: 90px;
-  background-image: linear-gradient(
-      136.07deg,
-      rgba(196, 196, 196, 0.03) 10.75%,
-      rgba(196, 196, 196, 0) 92.33%
-    ),
-    url(../images/icons/logo-mobile.svg);
+  color: var( --white-color);
+  background-color: #181818;
+  transition: color var(--animation);
+
+  &:hover,
+  &:focus {
+    color: var(--pink-color);
+  }
+}
+
+.logo-link__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: currentColor;
   backdrop-filter: blur(30px);
-  border-radius: 0 0 90px;
+  border-bottom-right-radius: 100%;
 
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 151px;
-    background-image: linear-gradient(
-        136.07deg,
-        rgba(196, 196, 196, 0.03) 10.75%,
-        rgba(196, 196, 196, 0) 92.33%
-      ),
-      url(../images/icons/logo-tabl.svg);
-    border-radius: 0 0 151px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 239px;
     height: 201px;
-    background-image: linear-gradient(
-        136.07deg,
-        rgba(196, 196, 196, 0.03) 10.75%,
-        rgba(196, 196, 196, 0) 92.33%
-      ),
-      url(../images/icons/logo-desk.svg);
-    border-radius: 0 0 201px;
-  }
-
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: var(--animation);
-
-  &:hover,
-  &:focus {
-    background-color: rgba(32, 13, 29, 0.6);
   }
 }
 
-.hero {
-  padding: 0;
-  margin: 0;
-  height: 364px;
-  background-repeat: no-repeat;
-  background-size: 100vw 102px, cover, cover;
-  background-position: bottom, center, center;
 
-  @media screen and (min-device-pixel-ratio: 1),
-    screen and (min-resolution: 96dpi),
-    screen and (min-resolution: 1dppx) {
-    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      url(../images/mobile/bg_mobile.jpg);
-  }
 
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      url(../images/mobile/bg_mobile@2x.jpg);
-  }
-
-  @media screen and (min-width: 768px) {
-    background-size: cover, 100vw 102px, cover, cover;
-    background-position: center, bottom, center, center;
-
-    @media screen and (min-device-pixel-ratio: 1),
-      screen and (min-resolution: 96dpi),
-      screen and (min-resolution: 1dppx) {
-      background-image: url(),
-        linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        url(../images/tablet/bg_tablet.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url(),
-        linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        url(../images/tablet/bg_tablet@2x.jpg);
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-size: cover, 100vw 102px, cover, cover;
-    background-position: center, bottom, center, center;
-
-    height: 446px;
-
-    @media screen and (min-device-pixel-ratio: 1),
-      screen and (min-resolution: 96dpi),
-      screen and (min-resolution: 1dppx) {
-      background-image: url(),
-        linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
-        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        url(../images/desktop/bg_desktop.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url(),
-        linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
-        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        url(../images/desktop/bg_desktop@2x.jpg);
-    }
-  }
-}
-
-.main-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 78px;
-  max-width: 212px;
-
-  font-weight: 900;
-  font-size: 18px;
-  line-height: 1.22;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--pink-color);
-
-  @media screen and (min-width: 768px) {
-    padding-top: 40px;
-    max-width: 353px;
-    font-size: 30px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-weight: 900;
-    font-size: 50px;
-    max-width: 588px;
-  }
-}
 
 .search-form {
   display: flex;
@@ -194,9 +77,7 @@
   font-weight: 400;
   line-height: 1.2;
 
-  transition-property: outline;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: outline var(--animation);
 
   &::placeholder {
     color: var(--grey-color);
@@ -221,12 +102,11 @@
   position: relative;
 }
 
-.form-input .icon {
+.input-search__icon {
   position: absolute;
+  display: inline-block;
   top: 20%;
   right: 35px;
-
-  display: inline-block;
   fill: var(--grey-color);
 
   @media screen and (min-width: 768px) {
@@ -235,12 +115,14 @@
   }
 }
 
-.search.icon {
-  width: 12px;
-  height: 12px;
-  fill: var(--grey-color);
-  pointer-events: none;
-}
+// .input-search__icon {
+//   width: 12px;
+//   height: 12px;
+//   fill: var(--grey-color);
+//   pointer-events: none;
+// }
+
+
 
 .select-country {
   display: flex;
@@ -287,7 +169,7 @@ select {
 
   &::-webkit-scrollbar {
     width: 5px;
-    background-color: 0000;
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
   }
 
