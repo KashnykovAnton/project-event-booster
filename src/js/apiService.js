@@ -5,8 +5,7 @@ async function fetchEvent(event, page) {
   const response = await fetch(
     `${BASE_URL}/events?keyword=${event}&page=${page}&size=20&locale=*&apikey=${API_KEY}`,
   );
-  const dataResponse = await response.json();
-  const events = await dataResponse._embedded;
+  const events = await response.json();
   return events;
 }
 
