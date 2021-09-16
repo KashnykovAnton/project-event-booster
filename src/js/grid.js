@@ -1,22 +1,13 @@
 import fetchEvent from '../js/apiService';
 import getRefs from './getRefs';
 import { states } from './searchEvent';
-
+import gridTpl from '../tamplates/grid.hbs';
 const refs = getRefs();
 
 function createMarkup(data) {
-
-  data._embedded.events.map(el => {
-    refs.mainListRef.insertAdjacentHTML(
-      'beforeend',
-      `<li class="main-item">
-        <img class="main-poster" src="${el.images[2].url}" alt="">
-        <h2 class="main-name">${el.name}</h2>
-        <p class="main-date">${el.dates.start.localDate}</p>
-        <p class="main-location">${el.dates.timezone}</p>
-        </li>`,
-    );
-  });
+  const markup = gridTpl(data._embedded.events);
+  console.log(markup);
+  refs.mainListRef.insertAdjacentHTML('beforeend', markup);
 }
 
 function startPageLoad() {
@@ -30,4 +21,3 @@ function startPageLoad() {
 // startPageLoad();
 
 export default startPageLoad;
-
