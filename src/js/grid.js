@@ -9,12 +9,12 @@ function createMarkup(data) {
   data._embedded.events.map(el => {
     refs.mainListRef.insertAdjacentHTML(
       'beforeend',
-      `<li class="main-item">
+      `<li class="main-item" id="${el.id}" ><a htef="#" id="${el.id}">
         <img class="main-poster" src="${el.images[2].url}" alt="">
         <h2 class="main-name">${el.name}</h2>
         <p class="main-date">${el.dates.start.localDate}</p>
         <p class="main-location">${el.dates.timezone}</p>
-        </li>`,
+        </a></li>`,
     );
   });
 }

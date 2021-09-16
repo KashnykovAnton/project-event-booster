@@ -23,3 +23,7 @@ refs.paginationRef.addEventListener('click', showPageOfNumber); // меняет 
 
 document.addEventListener('DOMContentLoaded', startPageLoad);
 document.addEventListener('DOMContentLoaded', addPagination);
+
+
+
+import './js/modal';

@@ -1,24 +1,52 @@
+import modalTpl from '../tamplates/modal.hbs';
+import fetchEvent from '../js/apiService';
 
-//===================================================
+import { states } from './searchEvent';
+
 const ref = {
     galleryList: document.querySelector('.main-list'),
-    modalOverlay: document.querySelector('.modal__backdrop'),
-    closeBtn: document.querySelector('[data-action="close-lightbox"]'),
-    modalLightBox: document.querySelector('.modal__lightbox'),
+    modalBackdrop: document.querySelector('.backdrop'),
+    closeBtn: document.querySelector('.js-close-btn'),
+    modalLightBox: document.querySelector('.modal__main-container'),
 }
 
-//====================================================
-ref.galleryList.addEventListener('click', onModalOpen);
+// ====================================================
+ref.galleryList.addEventListener('click', handleListener);
 ref.closeBtn.addEventListener('click', closeModal);
-ref.modalOverlay.addEventListener('click', closeModalOverlay);
+ref.modalBackdrop.addEventListener('click', closeModalOverlay);
 window.addEventListener('keydown', closeModalESC);
 
 
 //====================================================
-function onModalOpen(e) {
-    e.preventDefault();
-ref.modalLightBox.classList.add('is-open');
+function handleListener(e) {
+    const cards = document.querySelectorAll('.main-item');
+cards.forEach(el=>el.addEventListener('click', onModalOpen));
+// console.log(cards);
+}
 
+ function onModalOpen(e) {
+    // e.preventDefault();
+    document.body.classList.add('modal-open');
+ref.modalBackdrop.classList.toggle('is-hidden');
+
+// const id = e.currentTarget.getAttribute('id');
+
+let elId = e.currentTarget.getAttribute('id');
+console.log(elId);
+
+const response = fetchEvent(states.query, states.page)
+.then(data => data._embedded.events)
+.then(data=>{data.filter(el => el.id === elId)});
+// .then(dataEl => dataEl[0]);
+// const res = response.map(el=>el.getAttribute(idFind))
+console.log(response);
+// console.log(response.images['2'].url);
+
+
+const renderEl = modalTpl(response);
+
+console.log(renderEl);
+ref.modalLightBox.innerHTML = renderEl;
     
 }
 function closeModalESC(event) {
@@ -36,6 +64,7 @@ function closeModalOverlay(event) {
 
 
 function closeModal() {
-    ref.modalLightBox.classList.remove('is-open');   
+    document.body.classList.toggle('modal-open');
+    ref.modalBackdrop.classList.toggle('is-hidden');
 };
-//====================================================
+// ====================================================
