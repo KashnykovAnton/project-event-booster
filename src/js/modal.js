@@ -25,7 +25,7 @@ cards.forEach(el=>el.addEventListener('click', onModalOpen));
 }
 
  function onModalOpen(e) {
-    // e.preventDefault();
+    e.preventDefault();
     document.body.classList.add('modal-open');
 ref.modalBackdrop.classList.toggle('is-hidden');
 
@@ -36,7 +36,7 @@ console.log(elId);
 
 const response = fetchEvent(states.query, states.page)
 .then(data => data._embedded.events)
-.then(data=>{data.filter(el => el.id === elId)});
+.then(data=>data.filter(el => el.id === elId));
 // .then(dataEl => dataEl[0]);
 // const res = response.map(el=>el.getAttribute(idFind))
 console.log(response);
