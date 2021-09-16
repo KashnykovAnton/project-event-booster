@@ -36,18 +36,14 @@ console.log(elId);
 
 const response = fetchEvent(states.query, states.page)
 .then(data => data._embedded.events)
-.then(data=>data.filter(el => el.id === elId));
-// .then(dataEl => dataEl[0]);
-// const res = response.map(el=>el.getAttribute(idFind))
-console.log(response);
-// console.log(response.images['2'].url);
-
-
-const renderEl = modalTpl(response);
-
-console.log(renderEl);
-ref.modalLightBox.innerHTML = renderEl;
+.then(data=>data.filter(el => el.id === elId))
+.then(data=> createMarkupModal(data['0']));
     
+}
+
+function createMarkupModal(data) {
+    // const renderEl = modalTpl(response['0']);
+    ref.modalLightBox.innerHTML = modalTpl(data);  
 }
 function closeModalESC(event) {
     if (event.key === 'Escape') {
