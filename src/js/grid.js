@@ -1,7 +1,7 @@
 import fetchEvent from '../js/apiService';
 import getRefs from './getRefs';
 import { states } from './searchEvent';
-import createCard from '../tamplates/cards.hbs';
+import createCard from '../tamplates/grid.hbs';
 
 const refs = getRefs();
 
