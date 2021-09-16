@@ -23,11 +23,7 @@ function startPageLoad() {
   fetchEvent(states.query, states.page)
     .then(createMarkup)
     .catch(error => console.log(error));
-
-  // states.page += 1;
 }
-
-// startPageLoad();
 
 export default startPageLoad;
 

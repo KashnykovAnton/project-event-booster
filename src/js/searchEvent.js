@@ -7,6 +7,8 @@ const refs = getRefs();
 const states = {
   page: 1,
   query: '',
+  totalPages: '',
+  array: [],
 };
 
 function onSearchEvent(e) {

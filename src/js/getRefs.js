@@ -6,7 +6,7 @@ function getRefs() {
 
     backToTopBtn: document.querySelector('.back-to-top'),
     paginationRef: document.querySelector('.pagination'),
-    selectedRef: document.querySelector('.number-of-page_active'),
+    
   };
 }
 
