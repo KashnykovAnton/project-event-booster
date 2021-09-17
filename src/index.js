@@ -11,7 +11,7 @@ import { onSearchEvent, onTestNextPage } from './js/searchEvent';
 
 const refs = getRefs();
 
-import './js/modal'; // закомментировал чтобы не мешала ошибка
+import './js/modal'; 
 
 refs.formRef.addEventListener('submit', onSearchEvent);
 
@@ -24,5 +24,5 @@ document.addEventListener('DOMContentLoaded', startPageLoad);
 prePagination();
 
 refs.paginationRef.addEventListener('click', showPage); 
-import './js/modal';
+
 
