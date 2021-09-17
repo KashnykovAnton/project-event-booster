@@ -10,6 +10,7 @@ function createMarkup(data) {
   refs.mainListRef.innerHTML = markup;
 };
 
+
 function startPageLoad() {
   fetchEvent(states.query, states.page)
     .then(createMarkup)
@@ -21,4 +22,3 @@ function startPageLoad() {
 //startPageLoad();
 
 export default startPageLoad;
-
