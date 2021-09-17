@@ -24,7 +24,7 @@ function clickListener(e) {
 
 function openModalHandler(e) {
     refs.modalBackdrop.classList.remove("is-hidden");
-    document.body.classList.toggle("modal-open");
+    document.body.classList.toggle("is-open");
     elId = e.currentTarget.getAttribute("id");;
     responseByIdAndRender();
  }
@@ -57,15 +57,15 @@ function filter(data) {
 }
 
 function createMarkupForModal(data) {
-    author = data.name;
-    console.log(author);
+    // author = data.name;
+    // console.log(author);
   const renderEl = modalTpl(data);
 
   
   refs.modalMainContainer.innerHTML = renderEl;
   const  showInfo = document.querySelector('.modal__more-info-link');
   showInfo.addEventListener('click', modalShowMoreBtnHandler);
-  console.log(showInfo);
+  //console.log(showInfo);
 }
 
 function closeModalESC(event) {
@@ -82,10 +82,10 @@ function closeModalOverlay(event) {
 }
 
 function closeModal() {
-  document.body.classList.toggle("modal-open");
+  document.body.classList.toggle("is-open");
   refs.modalBackdrop.classList.toggle("is-hidden");
 }
 
-function clearModalMarkup() {
-    refs.modalMainContainer.innerHTML = ''; 
-}
+// function clearModalMarkup() {
+//     refs.modalMainContainer.innerHTML = ''; 
+// }
