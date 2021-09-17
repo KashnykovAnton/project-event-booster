@@ -92,6 +92,8 @@ function closeModal() {
   refs.modalBackdrop.classList.toggle("is-hidden");
 }
 
+
+
 function clearModalMarkup() {
     refs.modalMainContainer.innerHTML = ''; 
 }
