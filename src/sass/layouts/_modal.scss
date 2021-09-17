@@ -1,5 +1,5 @@
-//======================= LIGHTBOX ======================
-.modal__lightbox {
+//======================= BACKDROP ======================
+.backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,48 +8,43 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
+  opacity: 1;
+
+  z-index: 1200;
+
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(3px);
 
   overflow-y: scroll;
 }
 
-.modal__lightbox.is-open {
+.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.is-open {
+  overflow: hidden;
   opacity: 1;
   pointer-events: initial;
 }
 
-//======================= BACKDROP ======================
-
-.modal__backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--backdrop-color);
-  backdrop-filter: blur(3px);
-  z-index: 900;
-
-  overflow-y: scroll;
-}
 //======================= MODAL ======================
 .modal {
   position: absolute;
   text-align: center;
-  top: 30%;
+  top: 70%;
   left: 50%;
-  z-index: 99;
+  z-index: 1500;
   transform: translate(-50%, -50%);
   border-radius: 142px 0px;
   width: 272px;
   overflow: hidden;
   background-color: var(--modal-bg-color);
+  transition: transform ease-out 500ms;
 
-  padding-bottom: 50px;
   @media screen and (min-width: 767px) {
-    top: 42%;
+    top: 50%;
     width: 595px;
     border-radius: 282px 0px;
   }
@@ -60,19 +55,43 @@
     top: 50%;
   }
 }
-
+.is-hidden .modal {
+  transform: translateX(-50%) scale(0.5);
+  transition: transform var(--animation), opacity var(--animation);
+  opacity: 0;
+}
 .modal__card {
-  padding: 0 15px 0 15px;
   @media screen and (min-width: 767px) {
-    text-align: initial;
     display: flex;
+    text-align: initial;
+  }
+  @media screen and (min-width: 767px) and (max-width: 1279.99px) {
+    width: 595px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 930px;
   }
 }
 
+.modal__main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 2000;
+  margin: 75px 15px 104px;
+
+  @media screen and (min-width: 768px) {
+    margin: 28px 34px 56px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin: 62px 30px;
+  }
+}
 //======================= IMAGES ======================
 
 .modal__img-circle {
-  background-color: violet; //--------/*for delete*/
   border-radius: 50%;
   min-width: 100%;
   min-height: 100%;
@@ -83,8 +102,8 @@
   width: 102px;
   height: 102px;
   display: block;
-  margin: 45px auto 10px;
-  @media screen and (min-width: 767px) {
+  margin: 0px auto 10px;
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
     margin: 21px auto 60px;
     width: 70px;
     height: 70px;
@@ -104,17 +123,16 @@
   object-fit: cover;
 }
 .modal__img-big {
-  background-color: rgb(49, 84, 187); //--------/*for delete*/
   @media screen and (max-width: 767.99px) {
     display: none;
   }
-  @media screen and (min-width: 768px) {
-    margin: 0 27px 0 50px;
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    margin: 0 30px 0 23px;
     width: 233px;
     height: 416px;
   }
   @media screen and (min-width: 1280px) {
-    margin: 0 60px 0 50px;
+    margin: 0 60px 0 30px;
     width: 360px;
     height: 641px;
   }
@@ -128,7 +146,6 @@
     width: 29px;
     height: 19.3px;
   }
-  // background-color: rgb(171, 165, 165); //--------/*for delete*/
 }
 
 //======================= TEXT ======================
@@ -182,10 +199,10 @@
 }
 
 .modal__about {
-  width: 230px;
+  width: 265px;
   display: block;
-  @media screen and (min-width: 1200px) {
-    width: 400px;
+  @media screen and (min-width: 1280px) {
+    width: 450px;
   }
 }
 //======================= BUTTONS ======================
@@ -208,17 +225,22 @@
     margin-top: 20px;
     margin-bottom: 30px;
   }
+  &:hover,
+  &:focus {
+    border-color: var(--pink-color);
+    background-color: var(--pink-color);
+    color: var(--white-color);
+  }
 }
 
 .modal__btn-more {
   width: 230px;
   height: 40px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.25;
   font-weight: 500;
   position: relative;
   left: 38%;
-  padding: 10px 3px;
   margin-top: 5px;
   transform: translate(-50%, 0);
   border: 2px solid var(--btn-color);
@@ -233,49 +255,33 @@
     color: var(--white-color);
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     left: 23%;
     top: 2%;
     width: 255px;
     height: 40px;
-    padding: 10px 15px;
     margin-top: 23px;
-    margin-bottom: 70px;
     font-size: 16px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 15px;
+    margin-top: 55px;
     left: 11%;
     top: -1%;
   }
 }
 
-.modal-img-section {
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-  @media screen and (min-width: 768px) {
-    margin: 0 27px 0 50px;
-    width: 240px;
-    height: 300px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin: 0 60px 0 50px;
-    width: 350px;
-    height: 463px;
-  }
-}
-
-.modal__btn-close {
+.modal__close-button {
   position: absolute;
   display: flex;
+  display: block;
 
   top: 25px;
   right: 25px;
   width: 17px;
   height: 17px;
 
-  background-image: url(../images/icons/close-modal.svg);
+  fill: var(--btn-color);
+
   background-color: transparent;
   background-position: center;
   background-size: 60%;
@@ -286,5 +292,10 @@
     height: 25px;
     top: 30px;
     right: 30px;
+  }
+  &:hover,
+  &:focus {
+    border-color: var(--pink-color);
+    fill: var(--pink-color);
   }
 }

@@ -11,7 +11,7 @@ import { onSearchEvent, onTestNextPage } from './js/searchEvent';
 
 const refs = getRefs();
 
-// import './js/modal'; // закомментировал чтобы не мешала ошибка
+import './js/modal'; // закомментировал чтобы не мешала ошибка
 
 refs.formRef.addEventListener('submit', onSearchEvent);
 
