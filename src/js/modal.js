@@ -3,6 +3,7 @@ import fetchEvent from "../js/apiService";
 import {onSearchEvent, onTestNextPage, states } from './searchEvent';
 import getRefs from './getRefs';
 
+
 const refs = getRefs();
 // import { states } from "./searchEvent";
 
@@ -20,6 +21,7 @@ let author;
 ref.galleryList.addEventListener("click", clickListener);
 ref.closeBtn.addEventListener("click", closeModal);
 ref.modalBackdrop.addEventListener("click", closeModalOverlay);
+
 window.addEventListener("keydown", closeModalESC);
 
 
@@ -27,6 +29,7 @@ window.addEventListener("keydown", closeModalESC);
 function clickListener(e) {
   const cards = document.querySelectorAll(".main-item");
   cards.forEach((el) => el.addEventListener("click", openModalHandler));
+
   // console.log(cards);
 }
 
@@ -36,6 +39,7 @@ function openModalHandler(e) {
 
     elId = e.currentTarget.getAttribute("id");
     // console.log(elId);
+
     responseByIdAndRender();
  }
 
@@ -45,13 +49,16 @@ function modalShowMoreBtnHandler(e) {
     e.preventDefault();
    
     closeModal();
+
     ref.inputForm.value = author;
+
 
     //запрос по инпуту из формы
     // states.query = ref.inputForm.value;
     // states.page = 1;
 
  }
+
 
 //  function createMarkup(data) {
 
@@ -67,6 +74,7 @@ function modalShowMoreBtnHandler(e) {
 //     });
 //   }
 
+
 async function responseByIdAndRender(){
     const response = await fetchEvent(states.query, states.page)
     .then((data) => data._embedded.events)
@@ -75,12 +83,15 @@ async function responseByIdAndRender(){
 
     return response;
 }
+
 // data.filter((el) => el.id === elId)
+
 
 function filter(data) {
    const dataEl= data.filter((el) => el.id === elId);
     return dataEl;
 }
+
 
 function createMarkupForModal(data) {
     author = data.name;
@@ -93,6 +104,7 @@ function createMarkupForModal(data) {
   showInfo.addEventListener('click', modalShowMoreBtnHandler);
   console.log(showInfo);
 //   console.log(renderEl);
+
 
 }
 
@@ -111,6 +123,7 @@ function closeModalOverlay(event) {
 
 function closeModal() {
   document.body.classList.toggle("modal-open");
+
   ref.modalBackdrop.classList.toggle("is-hidden");
 }
 
@@ -205,3 +218,4 @@ function clearModalMarkup() {
 // //     ref.modalBackdrop.classList.toggle('is-hidden');
 // // };
 // // ====================================================
+

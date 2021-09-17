@@ -1,4 +1,5 @@
 
+
 .modal-open {
   overflow: hidden;
 }
@@ -17,6 +18,9 @@
   opacity: 1;
   transition: opacity var(--animation);
 
+
+
+
   overflow-y: scroll;
 
   &.is-hidden {
@@ -25,6 +29,7 @@
     opacity: 0;
   }
 }
+
 
 .modal {
   position: absolute;
@@ -37,6 +42,7 @@
 
   @media screen and (min-width: 767.99px) {
     top: 100px;
+
     width: 595px;
     border-radius: 225px 0px;
   }
@@ -47,13 +53,16 @@
     border-radius: 300px 0px;
   }
 
+
   .backdrop.is-hidden & {
     transform: translateX(-50%) scale(0.5);
 
     opacity: 0;
 
     transition: transform var(--animation), opacity var(--animation);
+
   }
+
 
   &__main-container {
     display: flex;
@@ -71,6 +80,7 @@
       margin: 62px 30px;
     }
   }
+
 
   &__top-image-container {
     width: 102px;
@@ -94,6 +104,7 @@
       margin-bottom: 41px;
     }
   }
+
 
   &__top-image {
     width: inherit;
@@ -181,6 +192,7 @@
     }
   }
 
+
   &__ticket-and-location-container {
     display: flex;
     flex-direction: column;
@@ -190,6 +202,7 @@
     @media screen and (min-width: 768px) {
       align-items: flex-start;
     }
+
   }
 
   &__location-icon {
@@ -203,6 +216,7 @@
       width: 22px;
     }
   }
+
 
   &__ticket-barcode {
     position: relative;
@@ -296,10 +310,12 @@
   justify-content: center;
   align-items: center;
 
+
   top: 25px;
   right: 25px;
   width: 17px;
   height: 17px;
+
 
   background-color: transparent;
 
@@ -323,6 +339,11 @@
   &:hover svg,
   &:focus svg {
     fill: fuchsia;
+  }
+  &:hover,
+  &:focus {
+    border-color: var(--pink-color);
+    fill: var(--pink-color);
   }
 }
 // //======================= LIGHTBOX ======================

@@ -1,13 +1,11 @@
 import { states } from './searchEvent';
 
-// const refs = getRefs();
-
 
 function getNumberOfPage(e) {
-  if (e.target.nodeName !== 'SPAN') {
+  if (e.target.nodeName !== 'SPAN' || e.srcElement.outerText === '...') {
     return;
   }
-  // console.log(e.srcElement.outerText);
+
   states.page = +e.srcElement.outerText;
 }
 

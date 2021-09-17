@@ -1,41 +1,49 @@
+
 import fetchEvent from "./apiService";
 import getRefs from "./getRefs";
 import createPagination from '../templates/pagination.hbs';
+
 import { states } from './searchEvent';
 
 const refs = getRefs();
 
-function addPagination() {
-  fetchEvent(states.query, states.page).then(data => {
-    let totalPages = (data.page.totalPages < 49) ? data.page.totalPages : 49;
-    let array = [];
+function pagination(e) {
+  if (states.totalPages > 7) {
 
-    for (let i = 1; i < 7 && i < totalPages; i += 1) {
-      array.push(i + 1);
+    if (states.page < 4) {
+      states.array[1] = 2;
+      states.array[2] = 3;
+      states.array[3] = 4;
+      states.array[4] = 5;
     }
 
-    if (totalPages > 7) {
-      array[4] = '...';
-      array[5] = totalPages;
+    if (states.page > 3) {
+      states.array[2] = states.page - 1;
+      states.array[3] = states.page;
+      states.array[4] = states.page + 1;
+    }
+
+    if (states.page === 4) {
+      states.array[1] = 2;
     }
 
     if (states.page > 4) {
-      array[0] = '...';
-      array[1] = states.page - 1;
-      array[2] = states.page;
-      array[3] = states.page + 1;
+      states.array[1] = '...';
     }
 
-    if (states.page > totalPages - 2) {
-      array[1] = totalPages - 4;
-      array[2] = totalPages - 3;
-      array[3] = totalPages - 2;
-      array[4] = totalPages - 1;
-      array[5] = totalPages;
+    if (states.page < states.totalPages - 3) {
+      states.array[5] = '...';
     }
 
-    refs.paginationRef.innerHTML = createPagination(array);
-  });
+    if (states.page > states.totalPages - 4) {
+      states.array[2] = states.totalPages - 4;
+      states.array[3] = states.totalPages - 3;
+      states.array[4] = states.totalPages - 2;
+      states.array[5] = states.totalPages - 1;
+    }
+  }
+
+  refs.paginationRef.innerHTML = createPagination(states.array);
 }
 
-export default addPagination;
+export default pagination;
