@@ -2,7 +2,6 @@ import modalTpl from "../templates/modal.hbs";
 import fetchEvent from "../js/apiService";
 import {onSearchEvent, onTestNextPage, states } from './searchEvent';
 import getRefs from './getRefs';
-import '../templates/grid.hbs';
 
 //================================================================
 const refs = getRefs();
