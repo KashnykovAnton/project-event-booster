@@ -6,7 +6,7 @@ const refs = getRefs();
 
 function createMarkup(data) {
   const markup = gridTpl(data._embedded.events);
-  console.log(markup);
+  // console.log(markup);
   refs.mainListRef.innerHTML = markup;
 };
 
