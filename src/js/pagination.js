@@ -1,5 +1,8 @@
-import getRefs from './getRefs';
-import createPagination from '../tamplates/pagination.hbs';
+
+import fetchEvent from "./apiService";
+import getRefs from "./getRefs";
+import createPagination from '../templates/pagination.hbs';
+
 import { states } from './searchEvent';
 
 const refs = getRefs();
