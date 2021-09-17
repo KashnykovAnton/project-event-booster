@@ -1,20 +1,24 @@
 import fetchEvent from '../js/apiService';
 import getRefs from './getRefs';
 import { states } from './searchEvent';
-import createCard from '../tamplates/grid.hbs';
-
+import gridTpl from '../tamplates/grid.hbs';
 const refs = getRefs();
 
 function createMarkup(data) {
-
-  refs.mainListRef.innerHTML = createCard(data._embedded.events);
+  const markup = gridTpl(data._embedded.events);
+  console.log(markup);
+  refs.mainListRef.innerHTML = markup;
 };
 
 function startPageLoad() {
   fetchEvent(states.query, states.page)
     .then(createMarkup)
     .catch(error => console.log(error));
+  
+  // states.page +=1;
 }
+
+//startPageLoad();
 
 export default startPageLoad;
 
