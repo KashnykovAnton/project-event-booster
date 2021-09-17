@@ -86,6 +86,7 @@ function closeModalOverlay(event) {
 }
 
 
+
 function closeModal() {
   document.body.classList.toggle("modal-open");
   refs.modalBackdrop.classList.toggle("is-hidden");
