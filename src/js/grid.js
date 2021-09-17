@@ -7,17 +7,18 @@ const refs = getRefs();
 function createMarkup(data) {
   const markup = gridTpl(data._embedded.events);
   console.log(markup);
-  refs.mainListRef.insertAdjacentHTML('beforeend', markup);
-}
+  refs.mainListRef.innerHTML = markup;
+};
+
 
 function startPageLoad() {
   fetchEvent(states.query, states.page)
     .then(createMarkup)
     .catch(error => console.log(error));
-
-  // states.page += 1;
+  
+  // states.page +=1;
 }
 
-// startPageLoad();
+//startPageLoad();
 
 export default startPageLoad;
