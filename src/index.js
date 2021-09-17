@@ -20,6 +20,9 @@ window.addEventListener('scroll', trackScroll);
 
 
 document.addEventListener('DOMContentLoaded', startPageLoad);
+
 prePagination();
 
 refs.paginationRef.addEventListener('click', showPage); 
+import './js/modal';
+

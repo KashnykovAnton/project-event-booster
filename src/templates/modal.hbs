@@ -1,67 +1,122 @@
 <article>
-    <div class="modal__circle-box">
-        <picture>
-            <img class="modal__img-circle" id="{{id}}" src="{{images.3.url}}" alt="{{name}}" />
-        </picture>
+
+ <div class="modal__top-image-container">
+  <img src="{{images.2.url}}" alt="Author" class="modal__top-image" />
+  </div>
+
+<div class="modal__information-container">
+  <div class="modal__side-image-container">
+      <img src="{{images.2.url}}" alt="Author" class="modal__side-image" />
+     </div>
+
+  <div class="modal__main-information">
+    <h2 class="modal__subheader">Info</h2>
+    <p class="modal__text">{{info}}</p>
+    <h2 class="modal__subheader">When</h2>
+    <p class="modal__text">{{dates.start.localDate}}{{dates.start.localTime}} ({{dates.timezone}})</p>
+    <h2 class="modal__subheader">Where</h2>
+    <div class="modal__ticket-and-location-container">
+      {{#each _embedded.venues}}
+      <p class="modal__text">
+        <svg class="modal__location-icon">
+         <use href=""></use>
+        </svg>
+        {{this.city.name}}, {{this.country.name}} {{this.name}}
+      </p>
+      <a class="modal__external-link"
+        href='#' target="_blank"
+        title="Show location">
+        Location
+      </a>
+      {{/each}}
+    </div>
+    <h2 class="modal__subheader">Who</h2>
+    <p class="modal__text">{{name}}</p>
+    <h2 class="modal__subheader">Prices</h2>
+    <div class="modal__ticket-and-location-container">
+      {{#each priceRanges}}
+      <p class="modal__text">
+        <svg class="modal__ticket-barcode">
+        <use href=""></use>
+        </svg>
+        {{this.type}} {{this.min}}-{{this.max}} {{this.currency}}
+      </p>
+      {{/each}}
+      <a class="modal__external-link" href='{{url}}' target="_blank" title="More from this author">
+        Buy tickets
+      </a>
     </div>
 
-    <div class="modal__card">
-        <picture class="modal__img-big">
-            <img class="modal__img-author" src="{{images.7.url}}" alt="{{name}}" />
-        </picture>
+  </div>
+</div>
 
-        <div class="modal__about">
-            <div class="modal__text-box">
-                <h2 class="modal__title">INFO</h2>
-                <p class="modal__text">{{name}}</p>
-            </div>
-
-            <div class="modal__text-box">
-                <h2 class="modal__title">WHEN</h2>
-                <p class="modal__text modal__text--padding">{{dates.start.localDate}}</p>
-                <p class="modal__text">{{dates.start.localTime}}({{_embedded.venues.0.timezone}})</p>
-            </div>
-
-            <div class="modal__text-box">
-                <h2 class="modal__title">WHERE</h2>
-                <p class="modal__text modal__text--padding">
-                    {{_embedded.venues.0.city.name}},{{_embedded.venues.0.country.name}}</p>
-                <p class="modal__text">{{_embedded.venues.0.name}}</p>
-            </div>
-
-            <div class="modal__text-box">
-                <h2 class="modal__title">WHO</h2>
-                <p class="modal__text">{{name}}</p>
-            </div>
-
-            <h2 class="modal__title">PRICES</h2>
-            <p class="modal__text">
-                <svg class="modal__svg-barcode" width="24" height="16">
-                    <use href=""></use>
-                </svg>
-                Standart {{priceRanges.0.min}}-{{priceRanges.0.max}}{{priceRanges.0.currency}}
-            </p>
-
-            <a href="{{url}}" target="_blank" rel="noopener noreferrer">
-                <button class="modal__btn-buy" type="button">BUY TICKETS</button>
-            </a>
-
-            <p class="modal__text">
-                <svg class="modal__svg-barcode" width="24" height="16">
-                    <use href=""></use>
-                </svg>
-                VIP {{priceRanges.1.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
-            </p>
-
-            <a href="{{url}}" target="_blank" rel="noopener noreferrer">
-                <button class="modal__btn-buy" type="button">BUY TICKETS</button>
-            </a>
-        </div>
-    </div>
-
-
-    <button class="modal__btn-more" type="button">MORE FROM THIS AUTHOR</button>
+<a class="modal__more-info-link" href='#' title="More from this author">
+  More from this author
+</a>
 </article>
 
 
+
+
+{{!-- <div class="modal__backdrop">
+    <div class="modal">
+        <button class="modal__btn-close" data-action="close-lightbox">
+        </button>
+
+        <div class="modal__circle-box">
+            <picture>
+                <img class="modal__img-circle" src="{{}}" alt="{{}}" />
+            </picture>
+        </div>
+
+        <div class="modal__card">
+            <picture class="modal__img-big">
+                <img class="modal__img-author" src="{{}}" alt="{{}}" width="233" height="416" />
+            </picture>
+
+            <div class="modal__about">
+                <div class="modal__text-box">
+                    <h2 class="modal__title">INFO</h2>
+                    <p class="modal__text">{{}}</p>
+                </div>
+                <div class="modal__text-box">
+                    <h2 class="modal__title">WHEN</h2>
+                    <p class="modal__text modal__text--padding">{{}}({{}})</p>
+                    <p class="modal__text">{{}}</p>
+                </div>
+                <div class="modal__text-box">
+                    <h2 class="modal__title">WHERE</h2>
+                    <p class="modal__text modal__text--padding">{{}}</p>
+                    <p class="modal__text">{{}}</p>
+                </div>
+                <div class="modal__text-box">
+                    <h2 class="modal__title">WHO</h2>
+                    <p class="modal__text">{{}}</p>
+                </div>
+
+                <h2 class="modal__title">PRICES</h2>
+                <p class="modal__text">
+                    <svg class="modal__svg-barcode" width="24" height="16">
+                        <use href=""></use>
+                    </svg>
+                    Standart {{}}-{{}}{{}}
+                </p>
+                <a href="{{}}" target="_blank">
+                    <button class="modal__btn-buy" type="button">BUY TICKETS</button>
+                </a>
+
+                <p class="modal__text">
+                    <svg class="modal__svg-barcode" width="24" height="16">
+                        <use href=""></use>
+                    </svg>
+                    VIP {{}}-{{}} {{}}
+                </p>
+                <a href="{{}}" target="_blank">
+                    <button class="modal__btn-buy" type="button">BUY TICKETS</button>
+                </a>
+            </div>
+        </div>
+        <button class="modal__btn-more" type="button">MORE FROM THIS AUTHOR</button>
+    </div>
+</div> --}}
 

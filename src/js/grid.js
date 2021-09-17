@@ -5,9 +5,11 @@ import gridTpl from '../templates/grid.hbs';
 const refs = getRefs();
 
 function createMarkup(data) {
+
   const markup = gridTpl(data._embedded.events);
-  // console.log(markup);
+
   refs.mainListRef.innerHTML = markup;
+
 }
 
 function startPageLoad() {
