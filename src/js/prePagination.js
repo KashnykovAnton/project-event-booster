@@ -4,10 +4,8 @@ import {refs} from './getRefs';
 import {states} from './getStates';
 
 
-async function prePagination() {
-    console.log(states.totalPages)
-  await fetchEvent(states.query, states.page, states.country).then(data => {
-    states.totalPages = data.page.totalPages < 49 ? data.page.totalPages : 49;
+function prePagination() {
+    
 
     for (let i = 0; i < 7 && i < states.totalPages; i += 1) {
       states.array.push(i + 1);
@@ -20,10 +18,11 @@ async function prePagination() {
 
     refs.paginationRef.innerHTML = createPagination(states.array);
     
-  });
+  
 
   refs.selectedRef = document.querySelector('.number-of-page');
-  refs.selectedRef.classList.add('number-of-page_active');
+  // refs.selectedRef.classList.add('number-of-page_active');
+  console.log('prepagination');
 }
 
-export default prePagination;
+// export default prePagination;
