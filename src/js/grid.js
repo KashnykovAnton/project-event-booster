@@ -5,20 +5,25 @@ import gridTpl from '../tamplates/grid.hbs';
 const refs = getRefs();
 
 function createMarkup(data) {
-  const markup = gridTpl(data._embedded.events);
-  // console.log(markup);
-  refs.mainListRef.innerHTML = markup;
-};
+  const events = data._embedded.events.map(event => ({
+    ...event,
+    imageUrlMobile: event.images.find(image => image.width === 305 && image.height === 203),
+    imageUrlMobile2x: event.images.find(image => image.width === 640 && image.height === 427),
+    imageUrlTablet: event.images.find(image => image.width === 1024 && image.height === 576),
+    imageUrlTablet2x: event.images.find(image => image.width === 1136 && image.height === 639),
+    imageUrlDesktop: event.images.find(image => image.width === 1136 && image.height === 639),
+    imageUrlDesktop2x: event.images.find(image => image.width === 2048 && image.height === 1152),
+    imageUrlDefault: event.images.find(image => image.width === 1024 && image.height === 576),
+  }));
 
+  const markup = gridTpl(events);
+  refs.mainListRef.innerHTML = markup;
+}
 
 function startPageLoad() {
   fetchEvent(states.query, states.page)
     .then(createMarkup)
     .catch(error => console.log(error));
-  
-  // states.page +=1;
 }
-
-//startPageLoad();
 
 export default startPageLoad;
