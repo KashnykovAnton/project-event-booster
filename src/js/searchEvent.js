@@ -1,6 +1,6 @@
 import fetchEvent from './apiService';
 import getRefs from './getRefs';
-import createMarkup from './grid';
+import { createMarkup } from './grid';
 
 const refs = getRefs();
 
@@ -9,6 +9,7 @@ const states = {
   query: '',
   totalPages: '',
   array: [],
+  country: 'US',
 };
 
 function onSearchEvent(e) {
@@ -18,7 +19,7 @@ function onSearchEvent(e) {
 
   console.log(states.query);
 
-  fetchEvent(states.query, states.page)
+  fetchEvent(states.query, states.page, states.country)
     .then(createMarkup)
     .catch(error => console.log(error));
 
