@@ -1,39 +1,33 @@
 import fetchEvent from './apiService';
-import getRefs from './getRefs';
-import { createMarkup } from './grid';
+import { createMarkup } from './fetchAndMarkup';
+import {refs} from './getRefs';
+import {states} from './getStates';
+import {fetchAndMarkup} from './fetchAndMarkup'
 
-const refs = getRefs();
+// console.log(refs);
+// console.log(states);
 
-const states = {
-  page: 1,
-  query: '',
-  totalPages: '',
-  array: [],
-  country: 'US',
-};
 
 function onSearchEvent(e) {
   e.preventDefault();
   states.query = e.currentTarget.elements.query.value;
+  resetPage();
+  fetchAndMarkup()
+  incrementPage();
+  clearMarkup ();
+}
+  
+function resetPage(){
   states.page = 1;
+}
 
-  console.log(states.query);
+function incrementPage(){
+    states.page += 1;
+}
 
-  fetchEvent(states.query, states.page, states.country)
-    .then(createMarkup)
-    .catch(error => console.log(error));
-
-  states.page += 1;
+function clearMarkup (){
   refs.mainListRef.innerHTML = '';
 }
 
-// тестовая функция для получения нумерованый страниц с API
-function onTestNextPage() {
-  fetchEvent(states.query, states.page)
-    .then(createMarkup)
-    .catch(error => console.log(error));
+export {onSearchEvent}
 
-  states.page += 1;
-}
-
-export { onSearchEvent, onTestNextPage, states };

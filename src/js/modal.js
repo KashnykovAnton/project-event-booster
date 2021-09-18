@@ -1,10 +1,10 @@
 import modalTpl from "../templates/modal.hbs";
-import fetchEvent from "../js/apiService";
-import {onSearchEvent, onTestNextPage, states } from './searchEvent';
-import getRefs from './getRefs';
+import fetchEvent from "./apiService";
+import {onSearchEvent} from './searchEvent';
+import {refs} from './getRefs';
+import {states} from './getStates';
 
 //================================================================
-const refs = getRefs();
 
 let elId = null;
 let author;

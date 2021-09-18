@@ -1,5 +1,4 @@
-function getRefs() {
-  return {
+const refs = {
     formRef: document.querySelector('#js-form'),
 
     mainListRef: document.querySelector('.main-list'),
@@ -15,6 +14,6 @@ function getRefs() {
     modalMainContainer: document.querySelector('.modal__main-container'),
     inputForm: document.querySelector('#js-input'),
   };
-}
 
-export default getRefs;
+
+export {refs};

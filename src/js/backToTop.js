@@ -1,5 +1,4 @@
-import getRefs from './getRefs';
-const refs = getRefs();
+import {refs} from './getRefs';
 
 export function trackScroll() {
   let scrolled = window.pageYOffset;

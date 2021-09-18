@@ -1,11 +1,11 @@
 import fetchEvent from './apiService';
-import getRefs from './getRefs';
 import createPagination from '../templates/pagination.hbs';
-import { states } from './searchEvent';
+import {refs} from './getRefs';
+import {states} from './getStates';
 
-const refs = getRefs();
 
 async function prePagination() {
+    console.log(states.totalPages)
   await fetchEvent(states.query, states.page, states.country).then(data => {
     states.totalPages = data.page.totalPages < 49 ? data.page.totalPages : 49;
 
@@ -18,9 +18,10 @@ async function prePagination() {
       states.array[6] = states.totalPages;
     }
 
-    
     refs.paginationRef.innerHTML = createPagination(states.array);
+    
   });
+
   refs.selectedRef = document.querySelector('.number-of-page');
   refs.selectedRef.classList.add('number-of-page_active');
 }

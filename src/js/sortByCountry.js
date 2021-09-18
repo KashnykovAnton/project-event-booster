@@ -1,7 +1,8 @@
-import fetchEvent from '../js/apiService';
-import { createMarkup } from '../js/grid';
-import { states } from './searchEvent';
-const selectCountrys = document.querySelector('#js-select');
+import fetchEvent from './apiService';
+import { createMarkup } from './fetchAndMarkup';
+import {states} from './getStates';
+
+const selectCountries = document.querySelector('#js-select');
 
 // const itemCountry = document.querySelector('option');
 // const nameCountry = document.querySelectorAll('.main-location');
@@ -12,4 +13,4 @@ function choose() {
     .then(states.country = this.value)
     .catch(error => console.log(error));
 }
-selectCountrys.addEventListener('change', choose);
+selectCountries.addEventListener('change', choose);

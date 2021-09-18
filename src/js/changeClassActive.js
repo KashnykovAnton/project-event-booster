@@ -1,7 +1,5 @@
-import getRefs from './getRefs';
-import { states } from './searchEvent';
-
-const refs = getRefs();
+import {refs} from './getRefs';
+import {states} from './getStates';
 
 function changeClassActive() {
   const foundPage = states.page;

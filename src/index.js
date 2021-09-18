@@ -3,16 +3,14 @@ import '../node_modules/geolocator/dist/geolocator.min.js'
 import './js/geolocator'
 import "./js/sortByCountry"
 
-import './js/grid.js';
+import './js/fetchAndMarkup';
 import prePagination from './js/prePagination';
 import showPage from './js/showPageOfNumber';
 
 import { trackScroll, backToTop } from './js/backToTop';
 
-import getRefs from './js/getRefs';
-import { onSearchEvent, onTestNextPage } from './js/searchEvent';
-
-const refs = getRefs();
+import {refs} from './js/getRefs';
+import { onSearchEvent} from './js/searchEvent';
 
 import './js/modal'; 
 

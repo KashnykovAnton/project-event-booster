@@ -1,6 +1,6 @@
-import fetchEvent from '../js/apiService';
-import { createMarkup } from '../js/grid';
-import { states } from './searchEvent';
+import fetchEvent from './apiService';
+import { createMarkup } from './fetchAndMarkup';
+import {states} from './getStates';
 
 geolocator.config({
   language: 'en',
@@ -30,7 +30,7 @@ window.onload = function () {
       return
     }
     const country = location.address.countryCode;
-    console.log(country);
+    // console.log(country);
     fetchEvent(states.query, states.page, country)
       .then(createMarkup)
       .then((states.country = country))

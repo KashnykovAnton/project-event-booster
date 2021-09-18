@@ -1,6 +1,33 @@
 {{#each this}}
   <li class='main-item' id={{id}}>
-    <img class='main-poster' src='{{images.2.url}}' alt='' />
+    {{!-- <img class='main-poster' src='{{images.2.url}}' alt='' /> --}}
+    <picture>
+      <source
+        srcset='{{imageUrlDesktop.url}}
+        1x,
+        {{imageUrlDesktop2x.url}}
+        2x'
+        media='(min-width: 1200px)'
+        type='image/jpeg'
+      />
+      <source
+        srcset='{{imageUrlTablet.url}}
+        1x,
+        {{imageUrlTablet2x.url}}
+        2x'
+        media='(min-width: 768px)'
+        type='image/jpeg'
+      />
+      <source
+        srcset='{{imageUrlMobile.url}}
+        1x,
+        {{imageUrlMobile2x.url}}
+        2x'
+        media='(max-width: 767px)'
+        type='image/jpeg'
+      />
+      <img class='main-poster' src={{imageUrlDefault.url}} alt='event image' />
+    </picture>
     <h2 class='main-name'>{{name}}</h2>
     <p class='main-date'> {{dates.start.localDate}}</p>
     <p class='main-location'>{{_embedded.venues.0.name}}</p>

@@ -1,4 +1,4 @@
-import { states } from './searchEvent';
+import {states} from './getStates';
 
 
 function getNumberOfPage(e) {
