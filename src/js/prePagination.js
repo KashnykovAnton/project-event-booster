@@ -6,7 +6,7 @@ import { states } from './searchEvent';
 const refs = getRefs();
 
 async function prePagination() {
-  await fetchEvent(states.query, states.page).then(data => {
+  await fetchEvent(states.query, states.page, states.country).then(data => {
     states.totalPages = data.page.totalPages < 49 ? data.page.totalPages : 49;
 
     for (let i = 0; i < 7 && i < states.totalPages; i += 1) {

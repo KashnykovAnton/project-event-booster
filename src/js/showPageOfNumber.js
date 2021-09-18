@@ -1,5 +1,5 @@
 import getNumberOfPage from './getNumberOfPage';
-import startPageLoad from './grid.js';
+import {startPageLoad} from './grid.js';
 import pagination from './pagination';
 import changeClassActive from './changeClassActive';
 

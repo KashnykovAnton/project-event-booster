@@ -1,6 +1,9 @@
 import './sass/main.scss';
+import '../node_modules/geolocator/dist/geolocator.min.js'
+import './js/geolocator'
+import "./js/sortByCountry"
 
-import startPageLoad from './js/grid.js';
+import './js/grid.js';
 import prePagination from './js/prePagination';
 import showPage from './js/showPageOfNumber';
 
@@ -17,9 +20,6 @@ refs.formRef.addEventListener('submit', onSearchEvent);
 
 refs.backToTopBtn.addEventListener('click', backToTop);
 window.addEventListener('scroll', trackScroll);
-
-
-document.addEventListener('DOMContentLoaded', startPageLoad);
 
 prePagination();
 
