@@ -43,7 +43,7 @@ function modalShowMoreBtnHandler(e) {
 
 
 async function responseByIdAndRender(){
-    const response = await fetchEvent(states.query, states.page)
+    const response = await fetchEvent(states.query, states.page, states.country)
     .then((data) => data._embedded.events)
     .then((data) => filter(data))
     .then((data) => createMarkupForModal(data['0']));
