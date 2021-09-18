@@ -1,18 +1,15 @@
 import getNumberOfPage from './getNumberOfPage';
 import startPageLoad from './grid.js';
-import addPagination from './pagination';
+import pagination from './pagination';
 import changeClassActive from './changeClassActive';
 
-async function showPageOfNumber(e) {
+function showPage(e) {
   e.preventDefault();
 
   getNumberOfPage(e);
-  startPageLoad ();
-  await addPagination(e);
-  
-
-  changeClassActive(e); //
-  
+  startPageLoad();
+  pagination();
+  changeClassActive();
 }
 
-export default showPageOfNumber;
+export default showPage;

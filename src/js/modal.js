@@ -35,7 +35,7 @@ function openModalHandler(e) {
     document.body.classList.toggle("modal-open");
 
     elId = e.currentTarget.getAttribute("id");
-    // console.log(elId);
+    console.log(elId);
     responseByIdAndRender();
  }
 
@@ -70,20 +70,36 @@ function modalShowMoreBtnHandler(e) {
 async function responseByIdAndRender(){
     const response = await fetchEvent(states.query, states.page)
     .then((data) => data._embedded.events)
+    
     .then((data) => filter(data))
-    .then((data) => createMarkupForModal(data['0']));
+    //data.filter((el) => el.id === elId))
+    .then((data) => console.log(data)); //
 
+
+    // .then((data) => filter(data))
+    // .then((data) => createMarkupForModal(data['0']));
+    console.log(response);
     return response;
 }
-// data.filter((el) => el.id === elId)
 
 function filter(data) {
-   const dataEl= data.filter((el) => el.id === elId);
-    return dataEl;
+  data.forEach(element => {
+    if(element.id === elId){
+      return element;
+    }
+  });
+  // for (const key in object) {
+  //   if (Object.hasOwnProperty.call(object, key)) {
+  //     const element = object[key];
+      
+  //   }
+  // }
+  //  const dataEl= data.filter((el) => el.id === elId);
+  //   return dataEl;
 }
 
 function createMarkupForModal(data) {
-    author = data.name;
+    // author = data.name;
     console.log(author);
   const renderEl = modalTpl(data);
 
