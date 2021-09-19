@@ -1,13 +1,16 @@
 import fetchEvent from '../js/apiService';
-import {refs} from './getRefs';
-import {states} from './getStates';
+import { refs } from './getRefs';
+import { states } from './getStates';
 import gridTpl from '../templates/grid.hbs';
 import prePagination from './prePagination';
+import showAlert from './pnotify';
+import showError from './pnotify';
 
 function fetchAndMarkup() {
-     fetchEvent(states.query, states.page, states.country)
+  fetchEvent(states.query, states.page, states.country)
     .then(createMarkup)
-    .catch(error => console.log(error));}
+    .catch(error => showError());
+}
 
 function createMarkup(data) {
   const events = data._embedded.events.map(event => ({
@@ -22,7 +25,7 @@ function createMarkup(data) {
   }));
   const markup = gridTpl(events);
   refs.mainListRef.innerHTML = markup;
-//   prePagination();
+  //   prePagination();
 }
 
-export {fetchAndMarkup, createMarkup}
+export { fetchAndMarkup, createMarkup };
