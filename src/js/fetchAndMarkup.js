@@ -2,9 +2,14 @@ import fetchEvent from '../js/apiService';
 import { refs } from './getRefs';
 import { states } from './getStates';
 import gridTpl from '../templates/grid.hbs';
-import prePagination from './prePagination';
+
+
 import showAlert from './pnotify';
 import showError from './pnotify';
+
+import pagination from './pagination';
+import changeClassActive from './changeClassActive';
+
 
 function fetchAndMarkup() {
   fetchEvent(states.query, states.page, states.country)
@@ -13,6 +18,7 @@ function fetchAndMarkup() {
 }
 
 function createMarkup(data) {
+  states.totalPages = data.page.totalPages < 41 ? data.page.totalPages : 41;
   const events = data._embedded.events.map(event => ({
     ...event,
     imageUrlMobile: event.images.find(image => image.width === 305 && image.height === 203),
@@ -25,7 +31,11 @@ function createMarkup(data) {
   }));
   const markup = gridTpl(events);
   refs.mainListRef.innerHTML = markup;
-  //   prePagination();
+
+  pagination();
+  changeClassActive();
+  console.log(data.page);
 }
 
-export { fetchAndMarkup, createMarkup };
+export {fetchAndMarkup, createMarkup};
+

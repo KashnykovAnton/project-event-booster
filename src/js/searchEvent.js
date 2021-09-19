@@ -14,15 +14,12 @@ function onSearchEvent(e) {
   if (states.query.trim() === '') {
     showAlert();
     return;
-  }
-  fetchEvent(states.query, states.page, states.country)
-    .then(createMarkup)
-    .catch(error => showError());
-
+  };
   resetPage();
   fetchAndMarkup();
-  incrementPage();
+  // incrementPage();
   clearMarkup();
+  clearPagination();
 }
 
 function resetPage() {
@@ -35,6 +32,9 @@ function incrementPage() {
 
 function clearMarkup() {
   refs.mainListRef.innerHTML = '';
+}
+function clearPagination (){
+  refs.paginationRef.innerHTML = '';
 }
 
 export { onSearchEvent };

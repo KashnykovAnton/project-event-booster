@@ -1,11 +1,15 @@
-
-import fetchEvent from "./apiService";
 import createPagination from '../templates/pagination.hbs';
-import {refs} from './getRefs';
-import {states} from './getStates';
+import { refs } from './getRefs';
+import { states } from './getStates';
 
-function pagination(e) {
+function pagination() {
+  states.array = [];
+  for (let i = 0; i < 7 && i < states.totalPages; i += 1) {
+    states.array.push(i + 1);
+  }
+
   if (states.totalPages > 7) {
+    states.array[6] = states.totalPages;
 
     if (states.page < 4) {
       states.array[1] = 2;
@@ -41,6 +45,21 @@ function pagination(e) {
   }
 
   refs.paginationRef.innerHTML = createPagination(states.array);
+
+  if (states.page > 7) {
+    const span2Ref = refs.paginationRef.querySelector('.pagination span:nth-child(2)');
+    span2Ref.addEventListener('click', getAverageNumberForSpan2);
+    const span5Ref = refs.paginationRef.querySelector('.pagination span:nth-child(6)');
+    span5Ref.addEventListener('click', getAverageNumberForSpan6);
+  }
+  
+}
+
+function getAverageNumberForSpan2() {
+  states.page = Math.round((states.array[2] + 1) / 2);
+}
+function getAverageNumberForSpan6() {
+  states.page = Math.round((states.array[6] + states.array[4]) / 2);
 }
 
 export default pagination;
