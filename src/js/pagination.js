@@ -45,10 +45,14 @@ function pagination() {
   }
 
   refs.paginationRef.innerHTML = createPagination(states.array);
-  const span2Ref = refs.paginationRef.querySelector('.pagination span:nth-child(2)');
-  span2Ref.addEventListener('click', getAverageNumberForSpan2);
-  const span5Ref = refs.paginationRef.querySelector('.pagination span:nth-child(6)');
-  span5Ref.addEventListener('click', getAverageNumberForSpan6);
+
+  if (states.page > 7) {
+    const span2Ref = refs.paginationRef.querySelector('.pagination span:nth-child(2)');
+    span2Ref.addEventListener('click', getAverageNumberForSpan2);
+    const span5Ref = refs.paginationRef.querySelector('.pagination span:nth-child(6)');
+    span5Ref.addEventListener('click', getAverageNumberForSpan6);
+  }
+  
 }
 
 function getAverageNumberForSpan2() {
