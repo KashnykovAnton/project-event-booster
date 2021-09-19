@@ -12,7 +12,7 @@ function fetchAndMarkup() {
 }
 
 function createMarkup(data) {
-  states.totalPages = data.page.totalPages < 49 ? data.page.totalPages : 49;
+  states.totalPages = data.page.totalPages < 41 ? data.page.totalPages : 41;
   const events = data._embedded.events.map(event => ({
     ...event,
     imageUrlMobile: event.images.find(image => image.width === 305 && image.height === 203),
