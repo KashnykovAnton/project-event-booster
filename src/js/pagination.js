@@ -16,7 +16,6 @@ function pagination() {
       states.array[2] = 3;
       states.array[3] = 4;
       states.array[4] = 5;
-
     }
 
     if (states.page > 3) {
@@ -46,6 +45,17 @@ function pagination() {
   }
 
   refs.paginationRef.innerHTML = createPagination(states.array);
+  const span2Ref = refs.paginationRef.querySelector('.pagination span:nth-child(2)');
+  span2Ref.addEventListener('click', getAverageNumberForSpan2);
+  const span5Ref = refs.paginationRef.querySelector('.pagination span:nth-child(6)');
+  span5Ref.addEventListener('click', getAverageNumberForSpan6);
+}
+
+function getAverageNumberForSpan2() {
+  states.page = Math.round((states.array[2] + 1) / 2);
+}
+function getAverageNumberForSpan6() {
+  states.page = Math.round((states.array[6] + states.array[4]) / 2);
 }
 
 export default pagination;
