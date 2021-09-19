@@ -10,7 +10,7 @@ function fetchAndMarkup() {
     .then(createMarkup)
     .catch(error => {
       console.log(error);
-      refs.paginationRef.innerHTML = '';
+      
     });
 }
 
@@ -30,6 +30,7 @@ function createMarkup(data) {
   refs.mainListRef.innerHTML = markup;
   pagination();
   changeClassActive();
+  console.log(data.page);
 }
 
 export {fetchAndMarkup, createMarkup};

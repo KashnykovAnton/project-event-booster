@@ -13,8 +13,9 @@ function onSearchEvent(e) {
   states.query = e.currentTarget.elements.query.value;
   resetPage();
   fetchAndMarkup()
-  incrementPage();
-  clearMarkup ();
+  // incrementPage();
+  clearMarkup();
+  clearPagination();
 }
   
 function resetPage(){
@@ -27,6 +28,9 @@ function incrementPage(){
 
 function clearMarkup (){
   refs.mainListRef.innerHTML = '';
+}
+function clearPagination (){
+  refs.paginationRef.innerHTML = '';
 }
 
 export {onSearchEvent}
