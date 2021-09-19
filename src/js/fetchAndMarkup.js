@@ -8,7 +8,10 @@ import changeClassActive from './changeClassActive';
 function fetchAndMarkup() {
   fetchEvent(states.query, states.page, states.country)
     .then(createMarkup)
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error);
+      refs.paginationRef.innerHTML = '';
+    });
 }
 
 function createMarkup(data) {
