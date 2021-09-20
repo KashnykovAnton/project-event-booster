@@ -19,6 +19,7 @@
 }
 
 .main-item {
+  position: relative;
   width: 128px;
   // display: flex;
   flex-direction: column;
@@ -46,6 +47,26 @@
     width: 194px;
     // margin-right: 56px;
     margin-bottom: 50px;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 108px;
+    height: 101px;
+    left: 30px;
+    top: 4px;
+
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    box-sizing: border-box;
+    border-radius: 50px 0px;
+
+    @media screen and (min-width: 767.98px) {
+      width: 153px;
+      height: 143px;
+      left: 41px;
+      // top: 0px;
+    }
   }
 }
 
