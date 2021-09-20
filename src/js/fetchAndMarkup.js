@@ -3,6 +3,7 @@ import {refs} from './getRefs';
 import {states} from './getStates';
 import gridTpl from '../templates/grid.hbs';
 import prePagination from './prePagination';
+import clickListener from'./modal'; 
 
 function fetchAndMarkup() {
      fetchEvent(states.query, states.page, states.country)
@@ -22,6 +23,8 @@ function createMarkup(data) {
   }));
   const markup = gridTpl(events);
   refs.mainListRef.innerHTML = markup;
+  clickListener();
+  
 //   prePagination();
 }
 

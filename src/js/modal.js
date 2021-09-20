@@ -1,70 +1,88 @@
 import modalTpl from "../templates/modal.hbs";
+import gridTpl from "../templates/grid.hbs";
 import fetchEvent from "./apiService";
-import {onSearchEvent} from './searchEvent';
-import {refs} from './getRefs';
-import {states} from './getStates';
+import { onSearchEvent } from "./searchEvent";
+import { fetchAndMarkup, createMarkup } from "./fetchAndMarkup";
+import { refs } from "./getRefs";
+import { states } from "./getStates";
 
 //================================================================
 
 let elId = null;
 let author;
+let countryEl;
+let queryFromForm;
 
 // ====================================================
-refs. mainListRef.addEventListener("click", clickListener);
+refs.mainListRef.addEventListener("click", clickListener);
 refs.closeBtn.addEventListener("click", closeModal);
 refs.modalBackdrop.addEventListener("click", closeModalOverlay);
 window.addEventListener("keydown", closeModalESC);
 
-
 //====================================================
-function clickListener(e) {
+export default function clickListener(e) {
   const cards = document.querySelectorAll(".main-item");
   cards.forEach((el) => el.addEventListener("click", openModalHandler));
 }
 
 function openModalHandler(e) {
-    refs.modalBackdrop.classList.remove("is-hidden");
-    document.body.classList.toggle("is-open");
-    elId = e.currentTarget.getAttribute("id");;
-    responseByIdAndRender();
- }
+  refs.modalBackdrop.classList.remove("is-hidden");
+  document.body.classList.toggle("is-open");
+  elId = e.currentTarget.getAttribute("id");
+  responseByIdAndRender();
+}
 
 function modalShowMoreBtnHandler(e) {
-    e.preventDefault();
-   
-    closeModal();
-    refs.inputForm.value = author;
+  e.preventDefault();
+  //  console.log(e);
+  closeModal();
+  clearModalMarkup();
+  //searching by the first word
+  const arrStr = author.split(" ");
+  queryFromForm = arrStr[0];
+  console.log("inputForm.value :>> ", queryFromForm);
+  refs.inputForm.value = queryFromForm; //author.slice(0,10); //.trim()
 
-    //запрос по инпуту из формы
-    // states.query = ref.inputForm.value;
-    // states.page = 1;
+  // console.log('inputForm.value :>> ', states.queryFromForm);
+  //запрос по инпуту из формы
+  // states.query = refs.inputForm.value;
+  states.page = 1;
+  // states.country = 'US';
+  // onSearchEvent(e);
 
- }
-
-
-async function responseByIdAndRender(){
-    const response = await fetchEvent(states.query, states.page, states.country)
-    .then((data) => data._embedded.events)
-    .then((data) => filter(data))
-    .then((data) => createMarkupForModal(data['0']));
-
-    return response;
+  const response2 = fetchEvent.fetchByEvent(refs.inputForm.value)
+  .then(data => createMarkup(data))
+  .catch(error => console.log(error));
+  states.page += 1;
 }
 
-function filter(data) {
-   const dataEl= data.filter((el) => el.id === elId);
-    return dataEl;
+async function responseByIdAndRender() {
+  const response = await fetchEvent.fetchId(elId)
+    .then((data) => data._embedded.events) //data._embedded.events
+    .then((data) => createMarkupForModal(data["0"]));
+    // .then((data) => data._embedded.events) //data._embedded.events
+    // .then((data) => filter(data))
+    // .then((data) => createMarkupForModal(data["0"]));
+
+  return response;
 }
+
+// function filter(data) {
+//   const dataEl = data.filter((el) => el.id === elId);
+//   return dataEl;
+// }
 
 function createMarkupForModal(data) {
-    // author = data.name;
-    // console.log(author);
+  // countryEl = data._embedded.attraction['0'].locale;
+  // console.log(countryEl);
+  console.log(data);
+  author = data.name;
+  console.log(author);
   const renderEl = modalTpl(data);
 
-  
   refs.modalMainContainer.innerHTML = renderEl;
-  const  showInfo = document.querySelector('.modal__more-info-link');
-  showInfo.addEventListener('click', modalShowMoreBtnHandler);
+  const showInfo = document.querySelector(".modal__more-info-link");
+  showInfo.addEventListener("click", modalShowMoreBtnHandler);
   //console.log(showInfo);
 }
 
@@ -77,7 +95,6 @@ function closeModalESC(event) {
 function closeModalOverlay(event) {
   if (event.target === event.currentTarget) {
     closeModal();
-   
   }
 }
 
@@ -86,6 +103,6 @@ function closeModal() {
   refs.modalBackdrop.classList.toggle("is-hidden");
 }
 
-// function clearModalMarkup() {
-//     refs.modalMainContainer.innerHTML = ''; 
-// }
+function clearModalMarkup() {
+  refs.modalMainContainer.innerHTML = "";
+}

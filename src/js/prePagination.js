@@ -6,7 +6,7 @@ import {states} from './getStates';
 
 async function prePagination() {
     console.log(states.totalPages)
-  await fetchEvent(states.query, states.page, states.country).then(data => {
+  await fetchEvent.fetchRandom(3).then(data => {
     states.totalPages = data.page.totalPages < 49 ? data.page.totalPages : 49;
 
     for (let i = 0; i < 7 && i < states.totalPages; i += 1) {

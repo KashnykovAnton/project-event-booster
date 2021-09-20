@@ -26,16 +26,16 @@ window.onload = function () {
 
   geolocator.locate(options, function (err, location) {
     if (err) {
-      fetchEvent(states.query, states.page, states.country).then(createMarkup);
+      fetchEvent.fetch(states.query, states.page, states.country).then(createMarkup);
       return
     }
     const country = location.address.countryCode;
     // console.log(country);
-    fetchEvent(states.query, states.page, country)
+    fetchEvent.fetchCountry(country)
       .then(createMarkup)
       .then((states.country = country))
       .catch(error =>
-        fetchEvent(states.query, states.page, 'US')
+        fetchEvent.fetchCountry('US')
           .then(createMarkup)
           .then((states.country = 'US')),
       );
