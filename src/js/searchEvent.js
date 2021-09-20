@@ -1,21 +1,26 @@
-// import fetchEvent from './apiService';
+// import {fetchEvent} from './apiService';
 // import { createMarkup } from './fetchAndMarkup';
 import { refs } from './getRefs';
 import { states } from './getStates';
 import { fetchAndMarkup } from './fetchAndMarkup';
-import { showAlert } from './pnotify';
+// import { showAlert } from './pnotify';
+import { showNotify } from './pnotify';
+
+import { geolocate } from './geolocator';
 
 // console.log(refs);
 // console.log(states);
+
+refs.logoRef.addEventListener('click', logoClickResetForm);
 
 function onSearchEvent(e) {
   e.preventDefault();
   states.query = e.currentTarget.elements.query.value;
 
-  if (states.query.trim() === '') {
-    showAlert();
-    return;
-  }
+  // if (states.query.trim() === '') {
+  //   showAlert();
+  //   return;
+  // }
 
   resetPage();
   fetchAndMarkup();
@@ -39,4 +44,12 @@ function clearPagination() {
   refs.paginationRef.innerHTML = '';
 }
 
-export { onSearchEvent };
+function logoClickResetForm() {
+  refs.formRef.reset();
+  clearMarkup();
+  clearPagination();
+  geolocate();
+  showNotify();
+}
+
+export { onSearchEvent, clearMarkup, clearPagination, resetPage };

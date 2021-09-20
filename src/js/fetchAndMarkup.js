@@ -1,18 +1,14 @@
-import fetchEvent from '../js/apiService';
+import { fetchEvent } from '../js/apiService';
 import { refs } from './getRefs';
 import { states } from './getStates';
 import gridTpl from '../templates/grid.hbs';
 import pagination from './pagination';
 import changeClassActive from './changeClassActive';
 import { showError } from './pnotify';
-import { clickListener } from "./modal";
+import { clickListener } from './modal';
 
 function fetchAndMarkup() {
-  fetchEvent(states.query, states.page, states.country)
-    .then(createMarkup)
-    .catch(error => {
-      showError();
-    });
+  fetchEvent(states.query, states.page, states.country).then(createMarkup).catch(showError);
 }
 
 function createMarkup(data) {
