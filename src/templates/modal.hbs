@@ -7,7 +7,7 @@
 
     <div class="modal__card">
         <picture class="modal__img-big">
-            <img class="modal__img-author" src="{{images.7.url}}" alt="{{name}}" />
+            <img class="modal__img-author" src="{{images.0.url}}" alt="{{name}}" />
         </picture>
 
         <div class="modal__about">
@@ -34,31 +34,33 @@
                 <p class="modal__text">{{name}}</p>
             </div>
 
-            <h2 class="modal__title">PRICES</h2>
-            <p class="modal__text">
-                <svg class="modal__svg-barcode" width="24" height="16">
-                    <use href=""></use>
-                </svg>
-                Standart {{priceRanges.0.min}}-{{priceRanges.0.max}}{{priceRanges.0.currency}}
-            </p>
-
-            <a href="{{url}}" target="_blank" rel="noopener noreferrer">
-                <button class="modal__btn-buy" type="button">BUY TICKETS</button>
-            </a>
-
-            <p class="modal__text">
-                <svg class="modal__svg-barcode" width="24" height="16">
-                    <use href=""></use>
-                </svg>
-                VIP {{priceRanges.1.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
-            </p>
-
-            <a href="{{url}}" target="_blank" rel="noopener noreferrer">
-                <button class="modal__btn-buy" type="button">BUY TICKETS</button>
-            </a>
+        <h2 class="modal__title">PRICES</h2>
+        <p class="modal__text">
+            <svg class="modal__svg-barcode" width="24" height="16">
+                <use href=""></use>
+            </svg>
+            Standart {{priceRanges.0.min}}-{{priceRanges.0.max}}{{priceRanges.0.currency}}
+        </p>
+        
+        <a class="modal__btn-buy-box modal__btn--hover" href="{{url}}" target="_blank" rel="noopener noreferrer">
+            <button class="modal__btn-buy" type="button">BUY TICKETS</button>
+        </a>
+        
+        <p class="modal__text">
+            <svg class="modal__svg-barcode" width="24" height="16">
+                <use href=""></use>
+            </svg>
+            VIP {{priceRanges.1.min}}-{{priceRanges.0.max}} {{priceRanges.0.currency}}
+        </p>
+        
+        <a class="modal__btn-buy-box  modal__btn--hover" href="{{url}}" target="_blank" rel="noopener noreferrer">
+            <button class="modal__btn-buy" type="button">BUY TICKETS</button>
+        </a>
+        
         </div>
-    </div>
-
-
-    <button class="modal__btn-more modal__more-info-link" type="button">MORE FROM THIS AUTHOR</button>
-</article>
+        </div>
+        
+        <a class="modal__btn-more-container modal__btn--hover">
+            <button class="modal__btn-more modal__more-info-link" type="button">MORE FROM THIS AUTHOR</button>
+        </a>
+        </article>

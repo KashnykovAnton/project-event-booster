@@ -16,7 +16,7 @@ refs.modalBackdrop.addEventListener('click', closeModalOverlay);
 window.addEventListener('keydown', closeModalESC);
 
 //====================================================
-function clickListener(e) {
+export function clickListener(e) {
   const cards = document.querySelectorAll('.main-item');
   cards.forEach(el => el.addEventListener('click', openModalHandler));
 }
@@ -34,10 +34,6 @@ function modalShowMoreBtnHandler(e) {
   closeModal();
   refs.inputForm.value = author;
 }
-
-//запрос по инпуту из формы
-// states.query = ref.inputForm.value;
-// states.page = 1;
 
 async function responseByIdAndRender() {
   const response = await fetchEvent(states.query, states.page, states.country)
@@ -82,6 +78,6 @@ function closeModal() {
   refs.modalMainContainer.innerHTML = '';
 }
 
-// function clearModalMarkup() {
-//     refs.modalMainContainer.innerHTML = '';
-// }
+function clearModalMarkup() {
+    refs.modalMainContainer.innerHTML = '';
+}
