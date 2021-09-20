@@ -7,6 +7,7 @@ function getNumberOfPage(e) {
   }
 
   states.page = +e.srcElement.outerText;
+  console.log(states.page);
 }
 
 export default getNumberOfPage;

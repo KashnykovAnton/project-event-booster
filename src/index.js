@@ -1,10 +1,10 @@
 import './sass/main.scss';
 import '../node_modules/geolocator/dist/geolocator.min.js'
 import './js/geolocator'
-import "./js/sortByCountry"
+// import "./js/sortByCountry"
 
-import './js/fetchAndMarkup';
-import prePagination from './js/prePagination';
+// import './js/fetchAndMarkup';
+// import prePagination from './js/prePagination';
 import showPage from './js/showPageOfNumber';
 
 import { trackScroll, backToTop } from './js/backToTop';
@@ -16,7 +16,7 @@ import './js/modal';
 refs.backToTopBtn.addEventListener('click', backToTop);
 window.addEventListener('scroll', trackScroll);
 
-prePagination();
+// prePagination();
 
 refs.paginationRef.addEventListener('click', showPage); 
 

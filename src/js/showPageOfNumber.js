@@ -1,14 +1,16 @@
 import getNumberOfPage from './getNumberOfPage';
 // import {startPageLoad} from './markupGrid';
-import {fetchAndMarkup} from './fetchAndMarkup';
+import {createMarkup, fetchAndMarkup} from './fetchAndMarkup';
 import pagination from './pagination';
 import changeClassActive from './changeClassActive';
+import fetchEvent from './apiService';
+import { states } from './getStates';
 
 function showPage(e) {
   e.preventDefault();
 
   getNumberOfPage(e);
-  fetchAndMarkup();
+  fetchEvent.fetchRandom(states.page).then(createMarkup);
   pagination();
   changeClassActive();
 
