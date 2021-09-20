@@ -9,20 +9,21 @@
   width: 100%;
   height: 100%;
   opacity: 1;
-
+  overflow: hidden;
+  transition: opacity 500ms ease-out 200ms;
   z-index: 1200;
 
   background-color: var(--backdrop-color);
   backdrop-filter: blur(3px);
 
   overflow-y: scroll;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-.is-hidden {
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-}
 .is-open {
   overflow: hidden;
   opacity: 1;
@@ -32,270 +33,61 @@
 //======================= MODAL ======================
 .modal {
   position: absolute;
-  text-align: center;
-  top: 70%;
-  left: 50%;
   z-index: 1500;
-  transform: translate(-50%, -50%);
-  border-radius: 142px 0px;
+
   width: 272px;
-  overflow: hidden;
+  top: 4%;
+
+  text-align: center;
+
+  border-radius: 142px 0px;
   background-color: var(--modal-bg-color);
-  transition: transform ease-out 500ms;
+  transition: transform 600ms ease-out 500ms;
 
   @media screen and (min-width: 767px) {
-    top: 50%;
+    top: 23%;
     width: 595px;
     border-radius: 282px 0px;
   }
   @media screen and (min-width: 1280px) {
     width: 930px;
     border-radius: 255px 0px;
-    margin-top: 200px;
-    top: 50%;
+    // margin-top: 200px;
+    top: 6%;
   }
-}
-.is-hidden .modal {
-  transform: translateX(-50%) scale(0.5);
-  transition: transform var(--animation), opacity var(--animation);
-  opacity: 0;
-}
-.modal__card {
-  @media screen and (min-width: 767px) {
+
+  .is-hidden & {
+    transform: translate(100%, 100%) scale(0.2);
+  }
+
+  &__card {
+    @media screen and (min-width: 767px) {
+      display: flex;
+      text-align: initial;
+    }
+    @media screen and (min-width: 767px) and (max-width: 1279.99px) {
+      width: 595px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 930px;
+    }
+  }
+
+  &__main-container {
     display: flex;
-    text-align: initial;
-  }
-  @media screen and (min-width: 767px) and (max-width: 1279.99px) {
-    width: 595px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 930px;
-  }
-}
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 
-.modal__main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 2000;
-  margin: 75px 15px 104px;
+    z-index: 2000;
+    margin: 75px 15px 104px;
 
-  @media screen and (min-width: 768px) {
-    margin: 28px 34px 56px;
-  }
+    @media screen and (min-width: 768px) {
+      margin: 28px 34px 56px;
+    }
 
-  @media screen and (min-width: 1280px) {
-    margin: 62px 30px;
-  }
-}
-//======================= IMAGES ======================
-
-.modal__img-circle {
-  border-radius: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-}
-
-.modal__circle-box {
-  width: 102px;
-  height: 102px;
-  display: block;
-  margin: 0px auto 10px;
-  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
-    margin: 21px auto 60px;
-    width: 70px;
-    height: 70px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 132px;
-    height: 132px;
-    margin: 41px auto 35px;
-  }
-}
-
-.modal__img-author {
-  border-radius: 0;
-  margin-bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-}
-.modal__img-big {
-  @media screen and (max-width: 767.99px) {
-    display: none;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
-    margin: 0 30px 0 23px;
-    width: 233px;
-    height: 416px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin: 0 60px 0 30px;
-    width: 360px;
-    height: 641px;
-  }
-}
-
-.modal__svg-barcode {
-  background-image: url(../images/icons/modal-ticket1.svg);
-  width: 24px;
-  height: 16px;
-  @media screen and (min-width: 1280px) {
-    width: 29px;
-    height: 19.3px;
-  }
-}
-
-//======================= TEXT ======================
-.modal__title {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0em;
-  text-align: center;
-  color: var(--pink-color);
-  padding-bottom: 5px;
-  @media screen and (min-width: 768px) {
-    text-align: start;
-  }
-  @media screen and (min-width: 1280px) {
-    padding-bottom: 7px;
-    font-size: 24px;
-  }
-}
-
-.modal__text {
-  position: relative;
-  font-family: var(--default-font);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25;
-  text-align: center;
-  color: var(--black-color);
-  @media screen and (min-width: 768px) {
-    text-align: start;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 18px;
-    line-height: 1.22;
-  }
-}
-.modal__text--padding {
-  padding-bottom: 3px;
-  @media screen and (min-width: 1280px) {
-    padding-bottom: 5px;
-  }
-}
-.modal__text-box {
-  margin-bottom: 10px;
-
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 20px;
-  }
-}
-
-.modal__about {
-  width: 265px;
-  display: block;
-  @media screen and (min-width: 1280px) {
-    width: 450px;
-  }
-}
-//======================= BUTTONS ======================
-.modal__btn-buy {
-  width: 145px;
-  height: 40px;
-  left: 400px;
-  top: 723px;
-  background-color: var(--btn-color);
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  color: var(--white-color);
-  @media screen and (min-width: 1280px) {
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  &:hover,
-  &:focus {
-    border-color: var(--pink-color);
-    background-color: var(--pink-color);
-    color: var(--white-color);
-  }
-}
-
-.modal__btn-more {
-  width: 230px;
-  height: 40px;
-  font-size: 15px;
-  line-height: 1.25;
-  font-weight: 500;
-  position: relative;
-  left: 38%;
-  margin-top: 5px;
-  transform: translate(-50%, 0);
-  border: 2px solid var(--btn-color);
-  border-radius: 5px;
-  background-color: transparent;
-  color: var(--btn-color);
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  &:hover,
-  &:focus {
-    border-color: var(--pink-color);
-    background-color: var(--pink-color);
-    color: var(--white-color);
-  }
-
-  @media screen and (min-width: 768px) {
-    left: 23%;
-    top: 2%;
-    width: 255px;
-    height: 40px;
-    margin-top: 23px;
-    font-size: 16px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-top: 55px;
-    left: 11%;
-    top: -1%;
-  }
-}
-
-.modal__close-button {
-  position: absolute;
-  display: flex;
-  display: block;
-
-  top: 25px;
-  right: 25px;
-  width: 17px;
-  height: 17px;
-
-  fill: var(--btn-color);
-
-  background-color: transparent;
-  background-position: center;
-  background-size: 60%;
-  background-repeat: no-repeat;
-
-  @media screen and (min-width: 1200px) {
-    width: 25px;
-    height: 25px;
-    top: 30px;
-    right: 30px;
-  }
-  &:hover,
-  &:focus {
-    border-color: var(--pink-color);
-    fill: var(--pink-color);
+    @media screen and (min-width: 1280px) {
+      margin: 62px 30px;
+    }
   }
 }

@@ -5,6 +5,7 @@ import gridTpl from '../templates/grid.hbs';
 import pagination from './pagination';
 import changeClassActive from './changeClassActive';
 import { showError } from './pnotify';
+import { clickListener } from "./modal";
 
 function fetchAndMarkup() {
   fetchEvent(states.query, states.page, states.country)
@@ -31,6 +32,7 @@ function createMarkup(data) {
 
   pagination();
   changeClassActive();
+  clickListener();
   console.log(data.page);
 }
 

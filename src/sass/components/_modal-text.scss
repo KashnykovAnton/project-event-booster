@@ -1,0 +1,60 @@
+.modal__title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--pink-color);
+  padding-bottom: 5px;
+  @media screen and (min-width: 768px) {
+    text-align: start;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 7px;
+    font-size: 24px;
+  }
+}
+
+.modal__text {
+  position: relative;
+
+  font-family: var(--default-font);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+
+  color: var(--black-color);
+
+  @media screen and (min-width: 768px) {
+    text-align: start;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  &--padding {
+    padding-bottom: 3px;
+    @media screen and (min-width: 1280px) {
+      padding-bottom: 5px;
+    }
+  }
+  &-box {
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.modal__about {
+  width: 265px;
+  display: block;
+  @media screen and (min-width: 1280px) {
+    width: 450px;
+  }
+}

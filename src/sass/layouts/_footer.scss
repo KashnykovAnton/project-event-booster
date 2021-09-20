@@ -37,7 +37,7 @@
   bottom: 80px;
   right: 40px;
 
-  z-index: 9999;
+  z-index: 99;
   width: 40px;
   height: 40px;
   text-align: center;
@@ -51,7 +51,8 @@
   border-radius: 10px 0px;
   outline: transparent;
   display: none;
-  transition: background-color var(--animation), color var(--animation), border-color var(--animation);
+  transition: background-color var(--animation), color var(--animation),
+    border-color var(--animation);
 
   &:hover {
     color: var(--red-color);
@@ -60,17 +61,13 @@
   }
 }
 
-
-
 .back-to-top-show {
   display: block;
 }
 
-.arrow-up{
+.arrow-up {
   font-size: 30px;
   font-weight: 700;
   color: inherit;
   text-shadow: var(--pink-color) 2px 0 10px;
-
 }
-

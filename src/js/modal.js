@@ -16,7 +16,7 @@ refs.modalBackdrop.addEventListener('click', closeModalOverlay);
 window.addEventListener('keydown', closeModalESC);
 
 //====================================================
-function clickListener(e) {
+export function clickListener(e) {
   const cards = document.querySelectorAll('.main-item');
   cards.forEach(el => el.addEventListener('click', openModalHandler));
 }
@@ -35,10 +35,6 @@ function modalShowMoreBtnHandler(e) {
   refs.inputForm.value = author;
 }
 
-//запрос по инпуту из формы
-// states.query = ref.inputForm.value;
-// states.page = 1;
-
 async function responseByIdAndRender() {
   const response = await fetchEvent(states.query, states.page, states.country)
     .then(data => data._embedded.events)
@@ -56,7 +52,13 @@ function filter(data) {
 function createMarkupForModal(data) {
   author = data.name;
   // console.log(author);
-  const renderEl = modalTpl(data);
+  const event = {
+    ...data,
+    imgCircleUrl: data.images.find(img => img.width === 305 && img.height === 225),
+    imgPosterUrl: data.images.find(img => img.width === 1024 && img.height === 683),
+    newTime: data.dates.start.localTime ? data.dates.start.localTime.split(':').slice(0, 2).join(':') : '',
+  };
+  const renderEl = modalTpl(event);
 
   refs.modalMainContainer.innerHTML = renderEl;
   const showInfo = document.querySelector('.modal__more-info-link');
@@ -82,6 +84,6 @@ function closeModal() {
   refs.modalMainContainer.innerHTML = '';
 }
 
-// function clearModalMarkup() {
-//     refs.modalMainContainer.innerHTML = '';
-// }
+function clearModalMarkup() {
+    refs.modalMainContainer.innerHTML = '';
+}

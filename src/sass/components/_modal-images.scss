@@ -1,0 +1,60 @@
+.modal__img-circle {
+  border-radius: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  box-shadow: 1px 1px 8px rgb(10 10 10);
+  border: 3px solid var(--black-color);
+}
+
+.modal__circle-box {
+  width: 102px;
+  height: 102px;
+  display: block;
+  margin: 0px auto 10px;
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    margin: 21px auto 60px;
+    width: 70px;
+    height: 70px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 132px;
+    height: 132px;
+    margin: 41px auto 35px;
+  }
+}
+
+.modal__img-author {
+  border-radius: 0;
+  margin-bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+.modal__img-big {
+  box-shadow: 1px 2px 33px rgb(10 10 10);
+  border: 3px solid var(--black-color);
+  @media screen and (max-width: 767.99px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    margin: 0 30px 0 23px;
+    width: 233px;
+    height: 416px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin: 0 60px 0 30px;
+    width: 360px;
+    height: 641px;
+  }
+}
+
+.modal__svg-barcode {
+  background-image: url(../images/icons/modal-ticket1.svg);
+  width: 24px;
+  height: 16px;
+  @media screen and (min-width: 1280px) {
+    width: 29px;
+    height: 19.3px;
+  }
+}
