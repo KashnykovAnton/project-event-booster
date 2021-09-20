@@ -5,6 +5,7 @@ const refs = {
   paginationRef: document.querySelector('.pagination'),
   selectedRef: document.querySelector('.number-of-page_active'),
   selectCountry: document.querySelector('#js-select'),
+  logoRef: document.querySelector('.logo-link'),
 
   //============== for modal=========================
   modalBackdrop: document.querySelector('.backdrop'),

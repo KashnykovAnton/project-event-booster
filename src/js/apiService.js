@@ -11,9 +11,15 @@ async function fetchEvent(event, page, country) {
   return events;
 }
 
+async function fetchEventById(id) {
+  const response = await fetch(`${BASE_URL}/events.json?&apikey=${API_KEY}&locale=*&id=${id}`);
+  const ev = await response.json();
+  return ev;
+}
+
 // fetchEvent('', 0, 'US').then(data => {states.totalPages = data.page.totalPages
 // console.log(states.totalPages)})
 
-export default fetchEvent;
+export { fetchEvent, fetchEventById };
 // CQP9dthjPXqIe7ApjGu3SzKFu5V4QuaK
 // vUlU4BB7NuakA06DxGebwYsl0aXUn0iA

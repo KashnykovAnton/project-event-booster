@@ -1,7 +1,9 @@
-import fetchEvent from './apiService';
+import { fetchEvent } from './apiService';
 import { createMarkup } from './fetchAndMarkup';
 import { states } from './getStates';
 import { refs } from './getRefs';
+import { showError } from './pnotify';
+import { resetPage } from './searchEvent';
 
 // const itemCountry = document.querySelector('option');
 // const nameCountry = document.querySelectorAll('.main-location');
@@ -12,5 +14,6 @@ function changeCountry() {
   fetchEvent(states.query, states.page, this.value)
     .then((states.country = this.value))
     .then(createMarkup)
-    .catch(error => console.log(error));
+    .catch(showError);
+  resetPage();
 }

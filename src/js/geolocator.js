@@ -1,4 +1,4 @@
-import fetchEvent from './apiService';
+import { fetchEvent } from './apiService';
 import { createMarkup } from './fetchAndMarkup';
 import { states } from './getStates';
 import { refs } from './getRefs';
@@ -11,7 +11,7 @@ geolocator.config({
   },
 });
 
-window.onload = function () {
+function geolocate() {
   var options = {
     enableHighAccuracy: true,
     timeout: 0,
@@ -26,7 +26,9 @@ window.onload = function () {
   };
 
   geolocator.locate(options, function (err, location) {
-    if (err) {userCancelGeo()}
+    if (err) {
+      userCancelGeo();
+    }
     const country = location.address.countryCode;
     // console.log(country);
     fetchEvent(states.query, states.page, country)
@@ -34,14 +36,18 @@ window.onload = function () {
       .then((states.country = country))
       .catch(absenceEventInCountry);
   });
-};
+}
+
+window.onload = geolocate();
 
 function userCancelGeo() {
   refs.mainListRef.innerHTML =
-    '<div class="error_Geo"><h2>Sorry, but we could not access your geolocation :(</h2> <h3>Please select your country :)</h3></div>'
+    '<div class="error_Geo"><h2>Sorry, but we could not access your geolocation :(</h2> <h3>Please select your country :)</h3></div>';
 }
 
 function absenceEventInCountry() {
   refs.mainListRef.innerHTML =
     '<div class="error_Geo"><h2>No events found in your country :(</h2> <h3>Please select another country :)</h3></div>';
 }
+
+export { geolocate };
