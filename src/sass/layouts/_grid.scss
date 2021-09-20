@@ -104,3 +104,23 @@
     font-size: 14px;
   }
 }
+
+// Error geolocator
+
+.error_Geo {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_Geo h2 {
+  margin-bottom: 10px;
+}
+
+.error_Geo h2,
+.error_Geo h3 {
+  font-family: var(--default-font);
+  color: var(--pink-color);
+  font-size: 36px;
+  line-height: 1.22;
+}
