@@ -1,16 +1,16 @@
 import fetchEvent from './apiService';
 import { createMarkup } from './fetchAndMarkup';
-import {states} from './getStates';
-
-const selectCountries = document.querySelector('#js-select');
+import { states } from './getStates';
+import { refs } from './getRefs';
 
 // const itemCountry = document.querySelector('option');
 // const nameCountry = document.querySelectorAll('.main-location');
 
-function choose() {
+refs.selectCountry.addEventListener('change', changeCountry);
+
+function changeCountry() {
   fetchEvent(states.query, states.page, this.value)
+    .then((states.country = this.value))
     .then(createMarkup)
-    .then(states.country = this.value)
     .catch(error => console.log(error));
 }
-selectCountries.addEventListener('change', choose);

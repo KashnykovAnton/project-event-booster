@@ -1,8 +1,8 @@
-import modalTpl from "../templates/modal.hbs";
-import fetchEvent from "./apiService";
-import {onSearchEvent} from './searchEvent';
-import {refs} from './getRefs';
-import {states} from './getStates';
+import modalTpl from '../templates/modal.hbs';
+import fetchEvent from './apiService';
+import { onSearchEvent } from './searchEvent';
+import { refs } from './getRefs';
+import { states } from './getStates';
 
 //================================================================
 
@@ -10,66 +10,62 @@ let elId = null;
 let author;
 
 // ====================================================
-refs. mainListRef.addEventListener("click", clickListener);
-refs.closeBtn.addEventListener("click", closeModal);
-refs.modalBackdrop.addEventListener("click", closeModalOverlay);
-window.addEventListener("keydown", closeModalESC);
-
+refs.mainListRef.addEventListener('click', clickListener);
+refs.closeBtn.addEventListener('click', closeModal);
+refs.modalBackdrop.addEventListener('click', closeModalOverlay);
+window.addEventListener('keydown', closeModalESC);
 
 //====================================================
 function clickListener(e) {
-  const cards = document.querySelectorAll(".main-item");
-  cards.forEach((el) => el.addEventListener("click", openModalHandler));
+  const cards = document.querySelectorAll('.main-item');
+  cards.forEach(el => el.addEventListener('click', openModalHandler));
 }
 
 function openModalHandler(e) {
-    refs.modalBackdrop.classList.remove("is-hidden");
-    document.body.classList.toggle("is-open");
-    elId = e.currentTarget.getAttribute("id");;
-    responseByIdAndRender();
- }
+  refs.modalBackdrop.classList.remove('is-hidden');
+  document.body.classList.toggle('is-open');
+  elId = e.currentTarget.getAttribute('id');
+  responseByIdAndRender();
+}
 
 function modalShowMoreBtnHandler(e) {
-    e.preventDefault();
-   
-    closeModal();
-    refs.inputForm.value = author;
+  e.preventDefault();
 
-    //запрос по инпуту из формы
-    // states.query = ref.inputForm.value;
-    // states.page = 1;
+  closeModal();
+  refs.inputForm.value = author;
+}
 
- }
+//запрос по инпуту из формы
+// states.query = ref.inputForm.value;
+// states.page = 1;
 
+async function responseByIdAndRender() {
+  const response = await fetchEvent(states.query, states.page, states.country)
+    .then(data => data._embedded.events)
+    .then(data => filter(data))
+    .then(data => createMarkupForModal(data['0']));
 
-async function responseByIdAndRender(){
-    const response = await fetchEvent(states.query, states.page, states.country)
-    .then((data) => data._embedded.events)
-    .then((data) => filter(data))
-    .then((data) => createMarkupForModal(data['0']));
-
-    return response;
+  return response;
 }
 
 function filter(data) {
-   const dataEl= data.filter((el) => el.id === elId);
-    return dataEl;
+  const dataEl = data.filter(el => el.id === elId);
+  return dataEl;
 }
 
 function createMarkupForModal(data) {
-    // author = data.name;
-    // console.log(author);
+  author = data.name;
+  // console.log(author);
   const renderEl = modalTpl(data);
 
-  
   refs.modalMainContainer.innerHTML = renderEl;
-  const  showInfo = document.querySelector('.modal__more-info-link');
+  const showInfo = document.querySelector('.modal__more-info-link');
   showInfo.addEventListener('click', modalShowMoreBtnHandler);
   //console.log(showInfo);
 }
 
 function closeModalESC(event) {
-  if (event.key === "Escape") {
+  if (event.key === 'Escape') {
     closeModal(event);
   }
 }
@@ -77,15 +73,15 @@ function closeModalESC(event) {
 function closeModalOverlay(event) {
   if (event.target === event.currentTarget) {
     closeModal();
-   
   }
 }
 
 function closeModal() {
-  document.body.classList.toggle("is-open");
-  refs.modalBackdrop.classList.toggle("is-hidden");
+  document.body.classList.toggle('is-open');
+  refs.modalBackdrop.classList.toggle('is-hidden');
+  refs.modalMainContainer.innerHTML = '';
 }
 
 // function clearModalMarkup() {
-//     refs.modalMainContainer.innerHTML = ''; 
+//     refs.modalMainContainer.innerHTML = '';
 // }

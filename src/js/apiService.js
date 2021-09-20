@@ -14,7 +14,6 @@ async function fetchEvent(event, page, country) {
 // fetchEvent('', 0, 'US').then(data => {states.totalPages = data.page.totalPages
 // console.log(states.totalPages)})
 
-
 export default fetchEvent;
 // CQP9dthjPXqIe7ApjGu3SzKFu5V4QuaK
 // vUlU4BB7NuakA06DxGebwYsl0aXUn0iA
