@@ -3,7 +3,7 @@
 }
 
 .logo-link {
-  color: var( --white-color);
+  color: var(--white-color);
   background-color: #181818;
   transition: color var(--animation);
 
@@ -31,9 +31,6 @@
     height: 201px;
   }
 }
-
-
-
 
 .search-form {
   display: flex;
@@ -121,8 +118,6 @@
 //   fill: var(--grey-color);
 //   pointer-events: none;
 // }
-
-
 
 .select-country {
   display: flex;

@@ -1,10 +1,9 @@
-
 const states = {
   page: 1,
   query: '',
   totalPages: '',
   array: [],
-  country: 'US'
+  country: 'US',
 };
 
-export {states}
+export { states };

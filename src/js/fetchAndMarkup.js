@@ -2,19 +2,16 @@ import fetchEvent from '../js/apiService';
 import { refs } from './getRefs';
 import { states } from './getStates';
 import gridTpl from '../templates/grid.hbs';
-
-
-import showAlert from './pnotify';
-import showError from './pnotify';
-
 import pagination from './pagination';
 import changeClassActive from './changeClassActive';
-
+import { showError } from './pnotify';
 
 function fetchAndMarkup() {
   fetchEvent(states.query, states.page, states.country)
     .then(createMarkup)
-    .catch(error => showError());
+    .catch(error => {
+      showError();
+    });
 }
 
 function createMarkup(data) {
@@ -37,5 +34,4 @@ function createMarkup(data) {
   console.log(data.page);
 }
 
-export {fetchAndMarkup, createMarkup};
-
+export { fetchAndMarkup, createMarkup };
