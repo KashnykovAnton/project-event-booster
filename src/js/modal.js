@@ -38,10 +38,13 @@ function modalShowMoreBtnHandler(e) {
   closeModal();
   clearModalMarkup();
   //searching by the first word
-  const arrStr = author.split(" ");
-  queryFromForm = arrStr[0];
-  console.log("inputForm.value :>> ", queryFromForm);
-  refs.inputForm.value = queryFromForm; //author.slice(0,10); //.trim()
+  // const arrStr = author.split(" ");
+  // queryFromForm = arrStr[0];
+
+  // const arrStr = author;
+  // queryFromForm = arrStr[0];
+  // console.log("inputForm.value :>> ", queryFromForm);
+  refs.inputForm.value = author; //author.slice(0,10); //.trim()
 
   // console.log('inputForm.value :>> ', states.queryFromForm);
   //запрос по инпуту из формы
@@ -76,7 +79,8 @@ function createMarkupForModal(data) {
   // countryEl = data._embedded.attraction['0'].locale;
   // console.log(countryEl);
   console.log(data);
-  author = data.name;
+  author = data._embedded.attractions[0].name
+  // author = data.name;
   console.log(author);
   const renderEl = modalTpl(data);
 

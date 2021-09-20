@@ -1,60 +1,83 @@
 import fetchEvent from './apiService';
-// import { createMarkup } from './fetchAndMarkup';
 import {refs} from './getRefs';
 import {states} from './getStates';
 import {fetchAndMarkup, createMarkup} from './fetchAndMarkup'
-import clickListener from'./modal'; 
+import { showAlert, showError, showNotify } from './pnotify';
 
 refs.formRef.addEventListener('submit',submitFormHandler);
 refs.inputForm.addEventListener('change', inputFormChanged);
 refs.selectByCountry.addEventListener('change', selectFormChanged);
 refs.logo.addEventListener('click', logoClickResetForm);
 
+function submitFormHandler(e) {
+  e.preventDefault();
+  // const eventForm = refs.inputForm.value.trim();
+  // const countryForm = refs.selectByCountry.value;
+  // // const country = refs.selectByCountry.value;
+  // console.log(eventForm);
+  // console.log('countryForm :>> ', countryForm);
+
+  // console.log(country);
+  // inputFormChanged();
+  // selectFormChanged();
+}
+
 function inputFormChanged(e) {
   const event = e.target.value.trim();
 
-  if(event) {
-    fetchEvent.fetchByEvent(event)
-    .then(data=>createMarkup(data))
-    .catch(err=>console.log(err));
+  if(event.length === 0) {
+    clearMarkup();
+    showError();
+    return;
   }
-  // clickListener();
+  fetchEvent.fetchByEvent(event)
+  .then(data=>checkedData(data))
+  .catch(err=>console.log(err));
+  
 }
 
 function selectFormChanged(e) {
-  const country = refs.selectByCountry.value;
-  const event = e.target.value.trim();
+  const country = e.target.value;
+  const event = refs.inputForm.value.trim();
   // console.log(country);
-  if(country) {
-    fetchEvent.fetchCountry(country)
-    .then(data=>createMarkup(data))
+if(country) {
+  fetchEvent.fetchCountry(country)
+  .then(data=>checkedData(data))
+  // .then(data=>createMarkup(data)) 
+  .catch(err=>console.log(err));
+}
+ 
+
+  if(event&&country) {
+    fetchEvent.fetchByEventAndCountry(event,country)
+    .then(data=>checkedData(data))
+    // .then(data=>createMarkup(data)) 
     .catch(err=>console.log(err));
   }
-  if (event && country) {
-    fetchEvent.fetchByEventAndCountry(event, country)
-    .then(data=>createMarkup(data))
-    .catch(err=>console.log(err));
-   }
 
-  //  clickListener();
+}
+function checkedData(data) {
+  if(data.page.totalElements === 0) {
+    // refs.formRef.reset();
+    showError();
+    clearMarkup();
+    return;
+  }
+  createMarkup(data);
 }
 
+
 function logoClickResetForm(e) {
-  // refs.inputForm.value = '';
-  // refs.selectByCountry.value = 'US';
   refs.formRef.reset();
   clearMarkup ();
   let pageRandom = 3;
   fetchEvent.fetchRandom(pageRandom)
   .then(data=>createMarkup(data))
   .catch(err=>console.log(err));
+  showNotify();
   
 }
-function submitFormHandler() {
-  e.preventDefault();
-  // inputFormChanged();
-  // selectFormChanged();
-}
+
 
 
 // function onSearchEvent(e) {
