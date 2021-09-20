@@ -63,10 +63,6 @@ async function responseByIdAndRender() {
   const response = await fetchEvent.fetchId(elId)
     .then((data) => data._embedded.events) //data._embedded.events
     .then((data) => createMarkupForModal(data["0"]));
-    // .then((data) => data._embedded.events) //data._embedded.events
-    // .then((data) => filter(data))
-    // .then((data) => createMarkupForModal(data["0"]));
-
   return response;
 }
 
@@ -85,7 +81,7 @@ function createMarkupForModal(data) {
   const renderEl = modalTpl(data);
 
   refs.modalMainContainer.innerHTML = renderEl;
-  const showInfo = document.querySelector(".modal__more-info-link");
+  const showInfo = document.querySelector(".js-modal__more-info");
   showInfo.addEventListener("click", modalShowMoreBtnHandler);
   //console.log(showInfo);
 }

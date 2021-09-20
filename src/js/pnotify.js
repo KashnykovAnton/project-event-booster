@@ -5,7 +5,7 @@ import { defaults } from '@pnotify/core';
 
 defaults.width = '350px';
 defaults.inClass = 'fadeInDown';
-defaults.delay = 3000;
+defaults.delay = 500;
 defaults.animateSpeed = 'normal';
 defaults.sticker = false;
 defaults.stickerHover = false;
