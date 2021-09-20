@@ -1,13 +1,13 @@
 <article>
     <div class="modal__circle-box">
         <picture>
-            <img class="modal__img-circle" id="{{id}}" src="{{images.3.url}}" alt="{{name}}" />
+            <img class="modal__img-circle" id="{{id}}" src="{{imgCircleUrl.url}}" alt="{{name}}" />
         </picture>
     </div>
 
     <div class="modal__card">
         <picture class="modal__img-big">
-            <img class="modal__img-author" src="{{images.0.url}}" alt="{{name}}" />
+            <img class="modal__img-author" src="{{imgPosterUrl.url}}" alt="{{name}}" />
         </picture>
 
         <div class="modal__about">
@@ -19,7 +19,7 @@
             <div class="modal__text-box">
                 <h2 class="modal__title">WHEN</h2>
                 <p class="modal__text modal__text--padding">{{dates.start.localDate}}</p>
-                <p class="modal__text">{{dates.start.localTime}}({{_embedded.venues.0.timezone}})</p>
+                <p class="modal__text">{{newTime}} ({{_embedded.venues.0.timezone}})</p>
             </div>
 
             <div class="modal__text-box">
