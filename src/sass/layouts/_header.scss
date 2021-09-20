@@ -102,13 +102,26 @@
 .input-search__icon {
   position: absolute;
   display: inline-block;
-  top: 20%;
-  right: 35px;
+  top: 18%;
+  right: 10%;
   fill: var(--grey-color);
 
   @media screen and (min-width: 768px) {
-    top: 35%;
-    right: 60px;
+    top: 26%;
+    right: 20%;
+  }
+}
+
+.input-search__country {
+  position: absolute;
+  display: inline-block;
+  top: 42%;
+  right: 10%;
+  fill: var(--grey-color);
+
+  @media screen and (min-width: 768px) {
+    top: 40%;
+    right: 10%;
   }
 }
 
@@ -142,6 +155,10 @@
   transition-property: outline;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-select {
+  position: relative;
 }
 
 select {
