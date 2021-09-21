@@ -17,9 +17,16 @@ async function fetchEventById(id) {
   return ev;
 }
 
+async function fetchByEventAndCountry(event,country, page = 0) {
+  const response = await fetch(
+    `${BASE_URL}/events.json?countryCode=${country}&keyword=${event}&page=${page}&size=24&locale=*&apikey=${API_KEY}`);
+  const events = await response.json();
+  return events;
+}
+
 // fetchEvent('', 0, 'US').then(data => {states.totalPages = data.page.totalPages
 // console.log(states.totalPages)})
 
-export { fetchEvent, fetchEventById };
+export { fetchEvent, fetchEventById, fetchByEventAndCountry };
 // CQP9dthjPXqIe7ApjGu3SzKFu5V4QuaK
 // vUlU4BB7NuakA06DxGebwYsl0aXUn0iA
