@@ -1,5 +1,6 @@
 const refs = {
   formRef: document.querySelector('#js-form'),
+  formSelect: document.querySelector('#js-select'),
   mainListRef: document.querySelector('.main-list'),
   backToTopBtn: document.querySelector('.back-to-top'),
   paginationRef: document.querySelector('.pagination'),
