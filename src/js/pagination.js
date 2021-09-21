@@ -46,7 +46,7 @@ function pagination() {
 
   refs.paginationRef.innerHTML = createPagination(states.array);
 
-  if (states.page > 7) {
+  if (states.totalPages > 7) {
     const span2Ref = refs.paginationRef.querySelector('.pagination span:nth-child(2)');
     span2Ref.addEventListener('click', getAverageNumberForSpan2);
     const span5Ref = refs.paginationRef.querySelector('.pagination span:nth-child(6)');

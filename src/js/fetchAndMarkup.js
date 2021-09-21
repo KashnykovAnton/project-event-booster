@@ -6,6 +6,7 @@ import pagination from './pagination';
 import changeClassActive from './changeClassActive';
 import { showError } from './pnotify';
 import { clickListener } from './modal';
+import prePagination from './prePagination';
 
 function fetchAndMarkup() {
   fetchEvent(states.query, states.page, states.country).then(createMarkup).catch(showError);
@@ -26,10 +27,11 @@ function createMarkup(data) {
   const markup = gridTpl(events);
   refs.mainListRef.innerHTML = markup;
 
+  // prePagination();
   pagination();
   changeClassActive();
   clickListener();
-  console.log(data.page);
+  // console.log(data.page);
 }
 
 export { fetchAndMarkup, createMarkup };
