@@ -2,6 +2,7 @@ import { fetchEvent } from './apiService';
 import { createMarkup } from './fetchAndMarkup';
 import { states } from './getStates';
 import { refs } from './getRefs';
+import { hideLoader } from './loader';
 
 geolocator.config({
   language: 'en',
@@ -34,7 +35,8 @@ function geolocate() {
     fetchEvent(states.query, states.page, country)
       .then(createMarkup)
       .then((states.country = country))
-      .catch(absenceEventInCountry);
+      .catch(absenceEventInCountry)
+      .finally(hideLoader);
   });
 }
 

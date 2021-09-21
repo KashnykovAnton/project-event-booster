@@ -1,11 +1,13 @@
 const refs = {
   formRef: document.querySelector('#js-form'),
+  formSelect: document.querySelector('#js-select'),
   mainListRef: document.querySelector('.main-list'),
   backToTopBtn: document.querySelector('.back-to-top'),
   paginationRef: document.querySelector('.pagination'),
   selectedRef: document.querySelector('.number-of-page_active'),
   selectCountry: document.querySelector('#js-select'),
   logoRef: document.querySelector('.logo-link'),
+  loaderRef: document.querySelector('.box-loader'),
 
   //============== for modal=========================
   modalBackdrop: document.querySelector('.backdrop'),
