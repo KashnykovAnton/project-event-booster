@@ -161,4 +161,63 @@
     border-color: var(--pink-color);
     fill: var(--pink-color);
   }
+
+  &--team-width {
+    @media screen and (max-width: 767.99px) {
+      top: 5px;
+      right: 7px;
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+.modal__close-button::before {
+  transform: rotate(-45deg);
+  transition: transform 300ms linear;
+  position: absolute;
+  display: block;
+  content: '';
+  width: 23px;
+  height: 3px;
+  background-color: var(--btn-color);
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+  }
+}
+
+.modal__btn:hover .modal__close-button::before {
+  transform: rotate(-130deg);
+  background-color: var(--pink-color);
+}
+
+.modal__btn:hover .modal__close-button::after {
+  transform: rotate(130deg);
+  background-color: var(--pink-color);
+}
+
+.modal__close-button::after {
+  transform: rotate(45deg);
+  transition: transform 300ms linear;
+  position: absolute;
+  display: block;
+  content: '';
+  width: 23px;
+  height: 3px;
+  background-color: #4c00fe;
+  @media screen and (min-width: 768px) {
+    width: 30px;
+  }
+}
+.modal__btn {
+  position: absolute;
+  display: block;
+  right: 25px;
+  top: 25px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

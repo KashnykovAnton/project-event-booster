@@ -12,6 +12,11 @@ const refs = {
   closeBtn: document.querySelector('.js-close-btn'),
   modalMainContainer: document.querySelector('.modal__main-container'),
   inputForm: document.querySelector('#js-input'),
+
+  //============= for modal team ====================
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modalTeamBackdrop: document.querySelector('[data-modal]'),
 };
 
 export { refs };

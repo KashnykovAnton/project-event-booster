@@ -11,6 +11,7 @@ import { refs } from './js/getRefs';
 import { onSearchEvent } from './js/searchEvent';
 
 import './js/modal';
+import './js/modal-team';
 
 refs.formRef.addEventListener('submit', onSearchEvent);
 
