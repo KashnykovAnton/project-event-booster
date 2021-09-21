@@ -34,14 +34,15 @@ function openModalHandler(e) {
 function modalShowMoreBtnHandler(e) {
   e.preventDefault();
   closeModal();
-  refs.inputForm.value = checkedAuthorString(author);
-  states.query = refs.inputForm.value;
+  // refs.inputForm.value = checkedAuthorString(author);
+  refs.inputForm.value = author;
+  // states.query = refs.inputForm.value;
   // console.log(refs.formSelect.value);
   // country = refs.formSelect.value;
   states.page = 1;
   fetchByEventAndCountry(refs.inputForm.value, refs.formSelect.value)
-  .then(data=>createMarkup(data))
-  .catch(err=>console.log(err));
+    .then(data => createMarkup(data))
+    .catch(err => console.log(err));
 }
 
 async function responseByIdAndRender() {
@@ -57,9 +58,9 @@ async function responseByIdAndRender() {
 function createMarkupForModal(data) {
   // author = data.name;
   console.log(data);
-  
-  author = (data._embedded.attractions[0].name || data.name ||data.images.name);
- 
+
+  author = data._embedded.attractions[0].name || data.name || data.images.name;
+
   console.log(author);
   const event = {
     ...data,
@@ -77,17 +78,15 @@ function createMarkupForModal(data) {
   //console.log(showInfo);
 }
 
-
-
-function checkedAuthorString(author) {
-  if(author.length > 10) {
-    console.log(author.length);
-    const arrStr = author.split(" ");
-    newStr = arrStr[0];
-    return newStr;
-  }
-  return author;
-}
+// function checkedAuthorString(author) {
+//   if (author.length > 10) {
+//     console.log(author.length);
+//     const arrStr = author.split(' ');
+//     newStr = arrStr[0];
+//     return newStr;
+//   }
+//   return author;
+// }
 
 function closeModalESC(event) {
   if (event.key === 'Escape') {

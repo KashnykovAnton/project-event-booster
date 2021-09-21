@@ -31,7 +31,7 @@ function geolocate() {
       userCancelGeo();
     }
     const country = location.address.countryCode;
-    // console.log(country);
+    console.log('внутри геолокоции', country);
     fetchEvent(states.query, states.page, country)
       .then(createMarkup)
       .then((states.country = country))

@@ -1,3 +1,18 @@
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   display: flex;
+//   flex-direction: column;
+// }
+// .container {
+//   flex: 1 0 auto;
+// }
+// .footer {
+//   flex-shrink: 0;
+// }
+
 .main {
   // width: 1280px;
   // margin-right: auto;
@@ -17,20 +32,21 @@
   margin-right: auto;
   margin-left: auto;
 
-  @media screen and (max-width: 479.98px) {
+  // @media screen and (max-width: 479.98px) {
+  //   max-width: 280px;
+  // }
+
+  // @media screen and (min-width: 480px) and (max-width: 767.98px) {
+  @media screen and (max-width: 767.98px) {
     max-width: 280px;
   }
 
-  @media screen and (min-width: 480px) and (max-width: 767.98px) {
-    max-width: 480px;
-  }
-
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-    max-width: 946px;
+    max-width: 610px;
   }
 
   @media screen and (min-width: 1280px) {
-    min-width: 946px;
+    max-width: 946px;
   }
 }
 
@@ -48,19 +64,20 @@
   margin-bottom: 30px;
   cursor: pointer;
 
-  @media screen and (min-width: 320px) and (max-width: 479.98px) {
-    margin-right: calc(100% - 276px);
+  // @media screen and (min-width: 320px) and (max-width: 479.98px) {
+  //   margin-right: calc(100% - 276px);
 
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-  }
+  //   &:nth-child(2n) {
+  //     margin-right: 0;
+  //   }
+  // }
 
-  @media screen and (min-width: 480px) and (max-width: 767.98px) {
-    margin-right: calc((100% - 414px) / 2);
+  // @media screen and (min-width: 480px) and (max-width: 767.98px) {
+  @media screen and (max-width: 767.98px) {
+    margin-right: calc((100% - 276px));
     margin-bottom: 45px;
 
-    &:nth-child(3n) {
+    &:nth-child(2n) {
       margin-right: 0;
     }
   }
@@ -115,7 +132,12 @@
 
   object-fit: cover; //картинки теперь не растянуты
 
-  @media screen and (min-width: 767.99px) {
+  @media screen and (max-width: 767.98px) {
+    width: 128px;
+    // height: 161px;
+  }
+
+  @media screen and (min-width: 768px) {
     width: 180px;
     height: 227px;
   }
@@ -166,8 +188,20 @@
 
 .error_Geo {
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 767.99px) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    margin-top: 50px;
+    margin-bottom: 120px;
+  }
 }
 
 .error_Geo h2 {

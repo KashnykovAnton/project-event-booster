@@ -52,7 +52,6 @@ function pagination() {
     const span5Ref = refs.paginationRef.querySelector('.pagination span:nth-child(6)');
     span5Ref.addEventListener('click', getAverageNumberForSpan6);
   }
-  
 }
 
 function getAverageNumberForSpan2() {

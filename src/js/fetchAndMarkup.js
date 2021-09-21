@@ -6,14 +6,13 @@ import pagination from './pagination';
 import changeClassActive from './changeClassActive';
 import { showError } from './pnotify';
 import { clickListener } from './modal';
-import prePagination from './prePagination';
 
 function fetchAndMarkup() {
   fetchEvent(states.query, states.page, states.country).then(createMarkup).catch(showError);
 }
 
 function createMarkup(data) {
-  states.totalPages = data.page.totalPages < 41 ? data.page.totalPages : 41;
+  states.totalPages = data.page.totalPages < 41 ? data.page.totalPages - 1 : 41;
   const events = data._embedded.events.map(event => ({
     ...event,
     imageUrlMobile: event.images.find(image => image.width === 305 && image.height === 203),
@@ -27,10 +26,14 @@ function createMarkup(data) {
   const markup = gridTpl(events);
   refs.mainListRef.innerHTML = markup;
 
-  // prePagination();
-  pagination();
-  changeClassActive();
+  // pagination();
+  // changeClassActive();
   clickListener();
+  if (states.totalPages > 1) {
+    pagination();
+    changeClassActive();
+  }
+
   // console.log(data.page);
 }
 
