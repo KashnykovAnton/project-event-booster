@@ -7,6 +7,7 @@ const refs = {
   selectedRef: document.querySelector('.number-of-page_active'),
   selectCountry: document.querySelector('#js-select'),
   logoRef: document.querySelector('.logo-link'),
+  loaderRef: document.querySelector('.box-loader'),
 
   //============== for modal=========================
   modalBackdrop: document.querySelector('.backdrop'),
