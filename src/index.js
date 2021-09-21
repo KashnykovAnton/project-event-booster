@@ -13,6 +13,7 @@ import { onSearchEvent } from './js/searchEvent';
 import * as scroll from './js/scrollPagePagination';
 
 import './js/modal';
+import './js/modal-team';
 
 refs.formRef.addEventListener('submit', onSearchEvent);
 

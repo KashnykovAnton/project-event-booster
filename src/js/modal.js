@@ -103,7 +103,7 @@ function closeModalOverlay(event) {
 
 function closeModal() {
   document.body.classList.toggle('is-open');
-  refs.modalBackdrop.classList.toggle('is-hidden');
+  refs.modalBackdrop.classList.add('is-hidden');
   refs.modalMainContainer.innerHTML = '';
 }
 
