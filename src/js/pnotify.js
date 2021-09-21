@@ -5,7 +5,9 @@ import { defaults } from '@pnotify/core';
 
 defaults.width = '350px';
 defaults.inClass = 'fadeInDown';
-defaults.delay = 500;
+
+defaults.delay = 1000;
+
 defaults.animateSpeed = 'normal';
 defaults.sticker = false;
 defaults.stickerHover = false;
@@ -22,6 +24,11 @@ function showError() {
     text: 'Sorry, but there are no more events with this name',
   });
 }
+function showNotify() {
+  alert({
+    text: 'You are back to the start page!',
+  });
+}
 
 function showNotify() {
   alert({
@@ -30,3 +37,4 @@ function showNotify() {
 }
 
 export { showAlert, showError, showNotify };
+
