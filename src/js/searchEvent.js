@@ -7,7 +7,7 @@ import { fetchAndMarkup } from './fetchAndMarkup';
 import { showNotify } from './pnotify';
 
 import { geolocate } from './geolocator';
-
+import { showLoader } from './loader';
 // console.log(refs);
 // console.log(states);
 
@@ -50,6 +50,7 @@ function logoClickResetForm() {
   clearPagination();
   geolocate();
   showNotify();
+  showLoader();
 }
 
 export { onSearchEvent, clearMarkup, clearPagination, resetPage };
