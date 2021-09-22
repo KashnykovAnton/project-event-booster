@@ -1,25 +1,26 @@
 {{#each this}}
   <li class='main-item animate__animated animate__flipInX' id={{id}}>
     {{!-- <img class='main-poster' src='{{images.2.url}}' alt='' /> --}}
-    <picture>
-      <source
-        srcset='{{imageUrlDesktop.url}}
+    <div class='thumbnail'>
+      <picture>
+        <source
+          srcset='{{imageUrlDesktop.url}}
         1x,
         {{imageUrlDesktop2x.url}}
         2x'
-        media='(min-width: 1200px)'
-        type='image/jpeg'
-      />
-      <source
-        srcset='{{imageUrlTablet.url}}
+          media='(min-width: 1200px)'
+          type='image/jpeg'
+        />
+        <source
+          srcset='{{imageUrlTablet.url}}
         1x,
         {{imageUrlTablet2x.url}}
         2x'
-        media='(min-width: 768px)'
-        type='image/jpeg'
-      />
-      <source
-        srcset='{{imageUrlMobile.url}}
+          media='(min-width: 768px)'
+          type='image/jpeg'
+        />
+        <source
+          srcset='{{imageUrlMobile.url}}
         1x,
         {{imageUrlMobile2x.url}}
         2x'
