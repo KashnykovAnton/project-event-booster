@@ -1,0 +1,101 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  margin-bottom: 28px;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  //   padding-top: 45px;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+    margin-bottom: 8px;
+  }
+
+  .glitch {
+    color: var(--pink-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    position: relative;
+    padding-top: 80px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 0px;
+      font-size: 30px;
+      //   padding-top: 50px;
+      //   padding-bottom: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 50px;
+      padding-top: 0px;
+      padding-bottom: 50px;
+    }
+
+    &:before,
+    &:after {
+      content: 'best events';
+      color: var(--pink-color);
+      position: absolute;
+      top: 0;
+      //   right: 10%;
+      overflow: hidden;
+      padding-top: 80px;
+      right: -24.5%;
+
+      @media screen and (min-width: 768px) {
+        padding-top: 0px;
+        font-size: 30px;
+        right: -23.5%;
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: 50px;
+        right: -24%;
+        padding: 0px;
+      }
+    }
+
+    &:before {
+      left: 3px;
+      text-shadow: -3px 0 red;
+      animation: glitch-before 2s linear 0s infinite alternate;
+    }
+    &:after {
+      left: 3px;
+      text-shadow: -3px 0 blue;
+      animation: glitch-after 2s linear 0s infinite alternate;
+    }
+  }
+}
+
+@keyframes glitch-before {
+  $steps: 30;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(150) + px, 600px, random(150) + px, 30px);
+    }
+  }
+}
+
+@keyframes glitch-after {
+  $steps: 30;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(150) + px, 600px, random(150) + px, 30px);
+    }
+  }
+}
