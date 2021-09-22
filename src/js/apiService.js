@@ -24,9 +24,16 @@ async function fetchByEventAndCountry(event,country, page = 0, size = 24) {
   return events;
 }
 
+async function fetchByEvent(event, page = 0) {
+  const response = await fetch(
+    `${BASE_URL}/events.json?keyword=${event}&page=${page}&size=24&locale=*&apikey=${API_KEY}`);
+  const events = await response.json();
+  return events;
+}
+
 // fetchEvent('', 0, 'US').then(data => {states.totalPages = data.page.totalPages
 // console.log(states.totalPages)})
 
-export { fetchEvent, fetchEventById, fetchByEventAndCountry };
+export { fetchEvent, fetchEventById, fetchByEventAndCountry, fetchByEvent };
 // CQP9dthjPXqIe7ApjGu3SzKFu5V4QuaK
 // vUlU4BB7NuakA06DxGebwYsl0aXUn0iA
