@@ -3,6 +3,7 @@ import { fetchEventById, fetchByEventAndCountry, fetchByEvent } from './apiServi
 import { createMarkup } from './fetchAndMarkup';
 import { refs } from './getRefs';
 import { states } from './getStates';
+import { clearPagination } from './searchEvent';
 
 //================================================================
 
@@ -33,9 +34,10 @@ function openModalHandler(e) {
 function modalShowMoreBtnHandler(e) {
   e.preventDefault();
   closeModal();
+  clearPagination();
   refs.inputForm.value = author;
-  selectInformation = refs.inputForm.value
-  states.page = 1;
+  selectInformation = refs.formSelect.value;
+  //states.page = 1;
 
   if (selectInformation.length > 2 ) {
     fetchByEvent(refs.inputForm.value)
