@@ -1,5 +1,5 @@
 {{#each this}}
-  <li class='main-item animate__animated animate__slideInRight' id={{id}}>
+  <li class='main-item animate__animated animate__flipInX' id={{id}}>
     {{!-- <img class='main-poster' src='{{images.2.url}}' alt='' /> --}}
     <picture>
       <source
@@ -30,7 +30,9 @@
     </picture>
     <h2 class='main-name'>{{name}}</h2>
     <p class='main-date'> {{dates.start.localDate}}</p>
-    <p class='main-location'><span class="material-icons material-icons--grid">place</span>{{_embedded.venues.0.name}}</p>
+    <p class='main-location'><span
+        class='material-icons material-icons--grid'
+      >place</span>{{_embedded.venues.0.name}}</p>
 
   </li>
 {{/each}}

@@ -8,7 +8,7 @@ import { clearPagination } from './searchEvent';
 //================================================================
 
 let elId = null;
-let author;
+let searchAuthor;
 let selectInformation;
 
 // ====================================================
@@ -35,20 +35,20 @@ function modalShowMoreBtnHandler(e) {
   e.preventDefault();
   closeModal();
   clearPagination();
-  refs.inputForm.value = author;
+  // refs.inputForm.value = author;
   selectInformation = refs.formSelect.value;
   //states.page = 1;
 
-  if (selectInformation.length > 2 ) {
+  if (selectInformation.length > 2) {
     fetchByEvent(refs.inputForm.value)
-    .then(data=>createMarkup(data))
-    .catch(err=>console.log(err));
+      .then(data => createMarkup(data))
+      .catch(err => console.log(err));
     return;
   }
 
-  fetchByEventAndCountry(refs.inputForm.value, refs.formSelect.value)
-  .then(data=>createMarkup(data))
-  .catch(err=>console.log(err));
+  fetchByEventAndCountry(searchAuthor, refs.formSelect.value)
+    .then(data => createMarkup(data))
+    .catch(err => console.log(err));
 }
 
 async function responseByIdAndRender() {
@@ -69,15 +69,14 @@ function createMarkupForModal(data) {
       : '',
   };
   const renderEl = modalTpl(event);
-  
-  author =  data.name;
- 
+
+  searchAuthor = data.name;
+
   refs.modalMainContainer.innerHTML = renderEl;
   const showInfo = document.querySelector('.modal__more-info-link');
   showInfo.addEventListener('click', modalShowMoreBtnHandler);
   //console.log(showInfo);
 }
-
 
 function closeModalESC(event) {
   if (event.key === 'Escape') {

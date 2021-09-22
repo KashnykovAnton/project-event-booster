@@ -25,9 +25,32 @@
   border-radius: 10px 0px;
 }
 
-.copyright {
-  // margin-top: 80px;
+.copyright-text {
+  font-size: 14px;
   color: #939393;
+  position: absolute;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.copyright-text--part {
+  display: inline-block;
+}
+.text-btn {
+  color: #939393;
+}
+.copyright-btn {
+  display: inline;
+  padding: 0;
 }
 
 .heart {
@@ -68,6 +91,9 @@
 }
 
 .arrow-up {
+  position: absolute;
+  bottom: 13px;
+  right: 10px;
   font-size: 30px;
   font-weight: 700;
   color: inherit;
