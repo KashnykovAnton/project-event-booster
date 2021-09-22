@@ -41,16 +41,16 @@
   position: relative;
   z-index: 1000;
 
-  margin-top: 25px;
+  // margin-top: 25px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    margin-top: 27px;
+    // margin-top: 27px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: 52px;
+    // margin-top: 52px;
   }
 }
 
@@ -61,7 +61,7 @@
   height: 40px;
   padding: 10px 50px 10px 30px;
 
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 
   background-color: var(--search-field-bg-color);
   backdrop-filter: blur(20px);
@@ -102,8 +102,8 @@
 .input-search__icon {
   position: absolute;
   display: inline-block;
-  top: 18%;
-  right: 10%;
+  top: 20%;
+  right: 12%;
   fill: var(--grey-color);
 
   @media screen and (min-width: 768px) {
