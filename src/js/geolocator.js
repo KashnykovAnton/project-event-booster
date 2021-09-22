@@ -44,12 +44,12 @@ window.onload = geolocate();
 
 function userCancelGeo() {
   refs.mainListRef.innerHTML =
-    '<div class="error_Geo"><h2>Sorry, but we could not access your geolocation :(</h2> <h3>Please select your country :)</h3></div>';
+    '<div class="error_Geo animate__animated animate__zoomInDown"><h2>Sorry, but we could not access your geolocation :(</h2> <h3>Please select your country :)</h3></div>';
 }
 
 function absenceEventInCountry() {
   refs.mainListRef.innerHTML =
-    '<div class="error_Geo"><h2>No events found in your country :(</h2> <h3>Please select another country :)</h3></div>';
+    '<div class="error_Geo animate__animated animate__zoomInDown"><h2>No events found in your country :(</h2> <h3>Please select another country :)</h3></div>';
 }
 
 export { geolocate };
