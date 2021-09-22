@@ -70,13 +70,13 @@
     }
 
     &:before {
-      left: 2px;
-      text-shadow: -2px 0 red;
+      left: 3px;
+      text-shadow: -3px 0 red;
       animation: glitch-before 2s linear 0s infinite alternate;
     }
     &:after {
-      left: 2px;
-      text-shadow: -2px 0 blue;
+      left: 3px;
+      text-shadow: -3px 0 blue;
       animation: glitch-after 2s linear 0s infinite alternate;
     }
   }
