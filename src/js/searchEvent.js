@@ -24,9 +24,9 @@ function onSearchEvent(e) {
 
   resetPage();
   fetchAndMarkup();
-  // incrementPage();
   clearMarkup();
   clearPagination();
+  // incrementPage();
 }
 
 function resetPage() {
@@ -51,6 +51,7 @@ function logoClickResetForm() {
   geolocate();
   showNotify();
   showLoader();
+  console.log(states.country);
 }
 
 export { onSearchEvent, clearMarkup, clearPagination, resetPage };

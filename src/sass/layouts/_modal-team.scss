@@ -38,13 +38,13 @@
 .modal-team {
   top: 0;
   margin: auto;
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     width: 595px;
     border-radius: 240px 0px;
   }
   @media screen and (min-width: 1280px) {
     width: 1000px;
-    height: 100vh;
+    min-height: 100vh;
     border-radius: 255px 0px;
   }
 

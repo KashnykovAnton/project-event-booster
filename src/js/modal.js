@@ -1,15 +1,15 @@
 import modalTpl from '../templates/modal.hbs';
-import { fetchEventById, fetchByEventAndCountry } from './apiService';
-import { fetchAndMarkup, createMarkup } from './fetchAndMarkup';
-// import { onSearchEvent } from './searchEvent';
+import { fetchEventById, fetchByEventAndCountry, fetchByEvent } from './apiService';
+import { createMarkup } from './fetchAndMarkup';
 import { refs } from './getRefs';
 import { states } from './getStates';
+import { clearPagination } from './searchEvent';
 
 //================================================================
 
 let elId = null;
-let author;
-let newStr;
+let searchAuthor;
+let selectInformation;
 
 // ====================================================
 refs.mainListRef.addEventListener('click', clickListener);
@@ -34,33 +34,32 @@ function openModalHandler(e) {
 function modalShowMoreBtnHandler(e) {
   e.preventDefault();
   closeModal();
-  refs.inputForm.value = checkedAuthorString(author);
-  states.query = refs.inputForm.value;
-  // console.log(refs.formSelect.value);
-  // country = refs.formSelect.value;
-  states.page = 1;
-  fetchByEventAndCountry(refs.inputForm.value, refs.formSelect.value)
-  .then(data=>createMarkup(data))
-  .catch(err=>console.log(err));
+  clearPagination();
+  // refs.inputForm.value = author;
+  selectInformation = refs.formSelect.value;
+  //states.page = 1;
+
+  if (selectInformation.length > 2) {
+    fetchByEvent(refs.inputForm.value)
+      .then(data => createMarkup(data))
+      .catch(err => console.log(err));
+    return;
+  }
+
+  fetchByEventAndCountry(searchAuthor, refs.formSelect.value)
+    .then(data => createMarkup(data))
+    .catch(err => console.log(err));
 }
 
 async function responseByIdAndRender() {
   const response = await fetchEventById(elId)
     .then(data => data._embedded.events)
-    // .then(data=>console.log(data))
-    // .then(data => filter(data))
     .then(data => createMarkupForModal(data['0']));
 
   return response;
 }
 
 function createMarkupForModal(data) {
-  // author = data.name;
-  console.log(data);
-  
-  author = (data._embedded.attractions[0].name || data.name ||data.images.name);
- 
-  console.log(author);
   const event = {
     ...data,
     imgCircleUrl: data.images.find(img => img.width === 305 && img.height === 225),
@@ -71,22 +70,12 @@ function createMarkupForModal(data) {
   };
   const renderEl = modalTpl(event);
 
+  searchAuthor = data.name;
+
   refs.modalMainContainer.innerHTML = renderEl;
   const showInfo = document.querySelector('.modal__more-info-link');
   showInfo.addEventListener('click', modalShowMoreBtnHandler);
   //console.log(showInfo);
-}
-
-
-
-function checkedAuthorString(author) {
-  if(author.length > 10) {
-    console.log(author.length);
-    const arrStr = author.split(" ");
-    newStr = arrStr[0];
-    return newStr;
-  }
-  return author;
 }
 
 function closeModalESC(event) {

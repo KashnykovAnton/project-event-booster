@@ -15,7 +15,7 @@ export function trackScroll() {
 export function backToTop() {
   if (window.pageYOffset > 0) {
     window.scrollBy(0, -50);
-    setTimeout(backToTop, 50);
+    setTimeout(backToTop, 20);
   }
 }
 

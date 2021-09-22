@@ -4,20 +4,12 @@ import '@pnotify/core/dist/BrightTheme.css';
 import { defaults } from '@pnotify/core';
 import { clearMarkup, clearPagination } from './searchEvent';
 
-defaults.width = '350px';
+defaults.width = '280px';
 defaults.inClass = 'fadeInDown';
-defaults.delay = 1000;
+defaults.delay = 2000;
 defaults.animateSpeed = 'normal';
 defaults.sticker = false;
 defaults.stickerHover = false;
-// defaults.closer = false;
-// defaults.labels.unstick = true;
-
-// function showAlert() {
-//   alert({
-//     text: 'All events in your region are shown below',
-//   });
-// }
 
 function showNotify() {
   alert({
@@ -33,5 +25,4 @@ function showError() {
   clearPagination();
 }
 
-// export { showAlert, showError, showNotify };
 export { showError, showNotify };
