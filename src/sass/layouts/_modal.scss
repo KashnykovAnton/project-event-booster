@@ -49,7 +49,7 @@
   background-color: var(--modal-bg-color);
   transition: transform 600ms ease-out 500ms;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     top: 23%;
     width: 595px;
     border-radius: 282px 0px;
@@ -66,11 +66,11 @@
   }
 
   &__card {
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
       display: flex;
       text-align: initial;
     }
-    @media screen and (min-width: 767px) and (max-width: 1279.99px) {
+    @media screen and (min-width: 768px) and (max-width: 1279.99px) {
       width: 595px;
     }
     @media screen and (min-width: 1280px) {
