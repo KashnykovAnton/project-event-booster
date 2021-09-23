@@ -175,6 +175,8 @@
 }
 
 .main-location {
+  display: flex;
+  justify-content: center;
   font-size: 12px;
   font-weight: 600;
   // cursor: pointer;

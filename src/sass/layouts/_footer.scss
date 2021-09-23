@@ -1,7 +1,7 @@
 .footer {
   font-size: 16px;
   line-height: 19px;
-  text-align: center;
+  text-align: center; 
 }
 
 .pagination {
@@ -25,9 +25,32 @@
   border-radius: 10px 0px;
 }
 
-.copyright {
+.copyright-text {
   // margin-top: 80px;
   color: #939393;
+  position: absolute; 
+  display:block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  // width: 252px;
+  left: 0;
+  right: 0;
+  bottom: 0; 
+  height: 40px;
+
+}
+.copyright-text--part {
+  display: inline-block;
+  
+}
+.text-btn{
+  color: #939393; 
+}
+.copyright-btn{
+  display: inline;
+  padding: 0;
+  
 }
 
 .heart {
