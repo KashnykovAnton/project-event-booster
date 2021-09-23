@@ -15,10 +15,21 @@
   display: inline-block;
   width: 30px;
   height: 30px;
+  border-color: var(--pink-color);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .number-of-page:hover {
   cursor: pointer;
+}
+
+.number-of-page:hover,
+.number-of-page:focus {
+  color: var(--pink-color);
+  border: 1px solid #dc56c5;
+  border-radius: 10px 0px;
 }
 
 .number-of-page_active {
