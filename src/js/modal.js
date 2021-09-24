@@ -80,7 +80,7 @@ function createMarkupForModal(data) {
 
 function closeModalESC(event) {
   if (event.key === 'Escape') {
-    closeModal();
+    closeModal(event);
   }
 }
 
