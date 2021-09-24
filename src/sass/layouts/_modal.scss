@@ -24,6 +24,7 @@
   backdrop-filter: blur(3px);
 
   &.is-hidden {
+    overflow: visible;
     opacity: 0;
     visibility: hidden;
   }
