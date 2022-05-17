@@ -29,6 +29,7 @@ function geolocate() {
   geolocator.locate(options, function (err, location) {
     if (err) {
       userCancelGeo();
+      hideLoader;
     }
     const country = location.address.countryCode;
     console.log('внутри геолокоции', country);
