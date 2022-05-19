@@ -33,7 +33,6 @@ function createMarkup(data) {
     pagination();
     changeClassActive();
   }
-
   // console.log(data.page);
 }
 

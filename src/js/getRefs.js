@@ -8,6 +8,7 @@ const refs = {
   selectCountry: document.querySelector('#js-select'),
   logoRef: document.querySelector('.logo-link'),
   loaderRef: document.querySelector('.box-loader'),
+  selectOptionsRefs: document.querySelectorAll('.option'),
 
   //============== for modal=========================
   modalBackdrop: document.querySelector('.backdrop'),
