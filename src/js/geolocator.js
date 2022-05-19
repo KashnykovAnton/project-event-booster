@@ -4,8 +4,7 @@ import { states } from './getStates';
 import { refs } from './getRefs';
 import { hideLoader } from './loader';
 
-const GEO_KEY = 'AntonMail';
-const API_KEY = '0cc70647f413003b02de263750cf9a3e';
+const USER_KEY = 'k41EyDPx30eTGsdFdGkR';
 
 window.onload = geolocate();
 
@@ -19,17 +18,11 @@ function onGetPositionError() {
   hideLoader();
 }
 
-async function onGetPositionSuccess(position) {
+async function onGetPositionSuccess() {
   try {
-    const response = await fetch(
-      // `https://api.ipapi.com/api/check?access_key=${API_KEY}`,
-      `https://api.ipapi.com/api/check?access_key=${API_KEY}`,
-      // `http://api.geonames.org/countryCodeJSON?lat=${position.coords.latitude}&lng=${position.coords.longitude}&username=${GEO_KEY}`,
-    );
+    const response = await fetch(`https://extreme-ip-lookup.com/json/?key=${USER_KEY}`);
     const data = await response.json();
-    console.log(data);
-    // return fetchEventWithGeolocation(data.countryCode);
-    return fetchEventWithGeolocation(data.country_code);
+    return fetchEventWithGeolocation(data.countryCode);
   } catch (error) {
     console.log(error);
     onGetPositionError();
