@@ -30,6 +30,8 @@
     "@pnotify/core": "^5.2.0",
     "animate.css": "^3.7.2",
     "basiclightbox": "^5.0.4",
+    "core-js": "^3.22.5",
+    "deasync": "^0.1.26",
     "geolocator": "^2.1.5",
     "gh-pages": "^3.2.3",
     "handlebars": "^4.7.7",

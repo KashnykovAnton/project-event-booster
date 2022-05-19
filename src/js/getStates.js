@@ -3,7 +3,9 @@ const states = {
   query: '',
   totalPages: '',
   array: [],
-  country: 'US',
+  country: '',
 };
+
+// console.log(states);
 
 export { states };
