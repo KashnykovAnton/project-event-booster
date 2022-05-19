@@ -2,7 +2,6 @@ import modalTpl from '../templates/modal.hbs';
 import { fetchEventById, fetchByEventAndCountry, fetchByEvent } from './apiService';
 import { createMarkup } from './fetchAndMarkup';
 import { refs } from './getRefs';
-import { states } from './getStates';
 import { clearPagination } from './searchEvent';
 
 //================================================================
@@ -15,7 +14,6 @@ let selectInformation;
 refs.mainListRef.addEventListener('click', clickListener);
 refs.closeBtn.addEventListener('click', closeModal);
 refs.modalBackdrop.addEventListener('click', closeModalOverlay);
-window.addEventListener('keydown', closeModalESC);
 
 //====================================================
 export function clickListener(e) {
@@ -24,10 +22,11 @@ export function clickListener(e) {
 }
 
 function openModalHandler(e) {
+  window.addEventListener('keydown', closeModalESC);
   refs.modalBackdrop.classList.remove('is-hidden');
   document.body.classList.toggle('is-open');
   elId = e.currentTarget.getAttribute('id');
-  console.log(elId);
+  // console.log(elId);
   responseByIdAndRender();
 }
 
@@ -75,12 +74,11 @@ function createMarkupForModal(data) {
   refs.modalMainContainer.innerHTML = renderEl;
   const showInfo = document.querySelector('.modal__more-info-link');
   showInfo.addEventListener('click', modalShowMoreBtnHandler);
-  //console.log(showInfo);
 }
 
 function closeModalESC(event) {
-  if (event.key === 'Escape') {
-    closeModal(event);
+  if (event.code === 'Escape') {
+    closeModal();
   }
 }
 
@@ -91,11 +89,8 @@ function closeModalOverlay(event) {
 }
 
 function closeModal() {
+  window.removeEventListener('keydown', closeModalESC);
   document.body.classList.toggle('is-open');
   refs.modalBackdrop.classList.add('is-hidden');
   refs.modalMainContainer.innerHTML = '';
 }
-
-// function clearModalMarkup() {
-//   refs.modalMainContainer.innerHTML = '';
-// }
